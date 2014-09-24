@@ -1,0 +1,19 @@
+<?php
+
+if (!\YawikDemoJobboard\Module::$isLoaded) return array();
+
+return array(
+        'view_manager' => array(
+            'template_map' => array(
+                'piwik' => '%%yawik.demoskin.piwik%%'  // location of the piwik code
+                )
+	        ),
+	    'Auth' => array(
+	        'first_login' => array(
+	            'role' => 'user',                       // initial role, if somebody logs in
+	            'mail_subject' => 'Herzlich Willkommen beim YAWIK Jobportal',
+	            'mail_name' => 'YAWIK Jobportal',
+	            'mail_from' => 'jobportal@yawik.org',
+	        ),
+	    ),
+	);
