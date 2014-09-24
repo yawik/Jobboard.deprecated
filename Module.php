@@ -22,7 +22,25 @@ class Module
         return include __DIR__ . '/config/module.config.php';
     }
 
-    function onBootstrap(){
+    /**
+     * Loads module specific autoloader configuration.
+     *
+     * @return array
+     */
+    public function getAutoloaderConfig()
+    {
+
+        return array(
+            'Zend\Loader\StandardAutoloader' => array(
+                'namespaces' => array(
+                    __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
+                ),
+            ),
+        );
+    }
+
+    function onBootstrap()
+    {
         self::$isLoaded=true;
     }
 }

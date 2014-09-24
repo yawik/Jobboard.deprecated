@@ -1,8 +1,14 @@
-YawikDemoSkin
-=============
+YawikDemoJobboard
+=================
 
-Skin for the Yawik Demo.
+This YAWIK Module makes YAWIK to work like a jobportal.
 
-We use this skin to put our Piwik Code into the layout.
+* The Startpage contains a List of Jobs
+* Default role of users is "user"
+* simple controller for an about page
 
-You can use this Skin as starting point to write your own skin.
+This module is running on:
+
+http://jobs.yawik.org
+
+You can use this Module as starting point to write your own Module.

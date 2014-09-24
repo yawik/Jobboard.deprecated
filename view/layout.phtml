@@ -1,6 +1,6 @@
 <?php
 /**
- * YAWIK
+ * YAWIK - Jobboard
  *
  * General layout template file. Defines the general layout.
  *
@@ -51,41 +51,16 @@
         </nav> <!-- /main-navigation -->
     </div>
 </header>
-<div class="container row col-md-2">
-    <!-- SIDEBAR -->
-    <nav id="sidebar">
-        <div id="sub-nav">
-            <?php
-            echo $this->navigation()->menu()
-                ->setOnlyActiveBranch(true)
-                ->setMaxDepth(null)
-                ->setMinDepth(1)
-                ->setRenderParents(false)
-                ->setUlClass('nav nav-pills nav-stacked');
-            ?>
-            <?
-            /**
-             * you can put partials
-             */
-            foreach ($this->layout()->getChildren() as $child):
-                if (0 === strpos($child->captureTo(), "sidebar_")):
-                    echo $this->{$child->captureTo()};
-                endif;
-            endforeach;?>
 
-        </div>
-    </nav>
-    <!-- /SIDEBAR -->
-</div>
 
-<main id="content" class="col-md-10">
+<main id="content" class="col-md-12">
     <?php echo $this->content; ?>
 </main>
 <!-- /container -->
 <footer id="cam-footer">
     <div class="container">
                 <span class="pull-left"><small>&copy; 2013-2014 <a href="http://cross-solution.de">Cross Solution</a>. <?php echo $this->translate('All rights reserved.') ?>
-                        | <?php passthru('git describe') ?> [<?php passthru('git rev-parse --abbrev-ref HEAD') ?>]</small></span>
+                         </small></span>
                 <span class="pull-right"><small>
                         Powered by <a href="http://yawik.org">YAWIK</a>
                     </small> </span>

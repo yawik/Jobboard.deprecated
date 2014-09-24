@@ -6,6 +6,7 @@ return array(
         'view_manager' => array(
             'template_map' => array(
                 'piwik' => '%%yawik.demoskin.piwik%%'  // location of the piwik code
+                'yawik-demo-jobboard/content/index' => 'about.phtml',
                 )
 	        ),
 	    'Auth' => array(
@@ -16,4 +17,26 @@ return array(
 	            'mail_from' => 'jobportal@yawik.org',
 	        ),
 	    ),
+	    'navigation' => array(
+                'default' => array(
+                    'jobboard' => array(
+                        'label' => 'About',
+                        'route' => 'lang/about',
+                        'order' => 65,                             // allows to order the menu items
+                        'resource' => 'route/lang/organizations',  // if a resource is defined, the acl will be applied.
+
+                        'pages' => array(
+                            'list' => array(
+                                'label' => /*@translate*/ 'Overview',
+                                'route' => 'lang/organizations',
+                            ),
+                            'edit' => array(
+                                'label' => /*@translate*/ 'Insert',
+                                'route' => 'lang/organizations/edit',
+                            ),
+                        ),
+                    ),
+
+                ),
+            ),
 	);
