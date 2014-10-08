@@ -54,6 +54,7 @@
 
 
 <main id="content" class="col-md-12">
+    <?php echo $this->notifications?>
     <?php echo $this->content; ?>
 </main>
 <!-- /container -->
@@ -67,6 +68,12 @@
 
     </div>
 </footer>
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
 <?php echo $this->partial("piwik")?>
 </body>
 </html>
