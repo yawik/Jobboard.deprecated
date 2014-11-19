@@ -7,6 +7,10 @@
  * @copyright (c) 2014 Cross Solution (http://cross-solution.de)
  * @license   MIT
  */
+
+// See: http://yawik.readthedocs.org/en/latest/modules/core/notifications.html
+
+$notifications = $this->partial('core/notifications');
 ?>
 <?php echo $this->doctype(); ?>
 <html lang="<?php echo $this->params('lang')?>">
@@ -54,7 +58,7 @@
 
 
 <main id="content" class="col-md-12">
-    <?php echo $this->notifications?>
+    <?php echo $notifications?>
     <?php echo $this->content; ?>
 </main>
 <!-- /container -->

@@ -15,7 +15,22 @@ return array(
 	            'mail_name' => 'YAWIK Jobportal',
 	            'mail_from' => 'jobportal@yawik.org',
 	        ),
+	        array(
+                'external_applications' => array(
+                  '%%external.app.prefix%%' => '%%external.app.key%%',
+                   ),
+             ),
 	    ),
+	    'acl' => array(
+             'rules' => array(
+                  // guests are allowed to see a list of companies.
+                  'guest' => array(
+                       'allow' => array(
+                           'route/lang/organizations',
+                        ),
+                   ),
+             ),
+        ),
 	    'navigation' => array(
                 'default' => array(
                     'jobboard' => array(
