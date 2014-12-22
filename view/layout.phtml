@@ -26,13 +26,13 @@ $notifications = $this->partial('core/notifications');
         ->appendScript('var lang="' . $this->params('lang') . '";'
             . 'var basePath="' . $this->basePath() . '";');
     ?>
-    <?php echo $this->headLink() ->prependStylesheet($this->basePath() . '/css/yawik.css');?>
+    <?php echo $this->headLink() ->prependStylesheet($this->basePath() . '/YawikDemoJobboard/YawikDemoJobboard.css');?>
     <?php echo $this->headStyle() ?>
 </head>
 <body>
 <a class="sr-only" href="#content">Skip to main content</a>
-<header id="cam-topbar" role="banner">
-    <div class="cam-container">
+<header id="top" class="navbar navbar-inverse navbar-static-top" role="banner">
+    <div class="container">
         <div class="navbar-header">
             <button class="navbar-toggle collapsed" data-target=".cam-navbar-collapse" data-toggle="collapse" type="button">
                 <span class="sr-only">Toggle navigation</span>
@@ -43,20 +43,18 @@ $notifications = $this->partial('core/notifications');
             <a class="navbar-brand hidden-xs" href="<?php echo $this->basepath('/' . $this->params('lang'))?>">YAWIK Jobboard</a>
             <a class="navbar-brand visible-xs" href="<?php echo $this->basepath('/' . $this->params('lang'))?>">Y</a>
         </div>
-        <nav id="cam-main-navigation" class="navbar-collapse collapse cam-navbar-collapse" role="navigation">
+        <nav id="main-navigation" class="navbar-collapse collapse cam-navbar-collapse" role="navigation">
             <?php
             echo $this->navigation('Core/Navigation')
                 ->setAcl($this->services('acl'))
                 ->setRole($this->auth('role'))
                 ->menu()
-                ->setMaxDepth(0)                        // only show the top level entries
-                ->setUlClass('nav navbar-nav pull-left')//renderPartial(null, 'main-navigation')?>
+                ->setMaxDepth(1)
+                ->renderPartial(null, 'main-navigation')?>
             <?php echo $this->loginInfo() ?>
         </nav> <!-- /main-navigation -->
     </div>
 </header>
-
-
 <main id="content" class="col-md-12">
     <?php echo $notifications?>
     <?php echo $this->content; ?>
