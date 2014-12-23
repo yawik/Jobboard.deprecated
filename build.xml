@@ -1,0 +1,36 @@
+<project name="YAWIK" default="install">
+    <target name="install" depends="symlinks">
+        <echo>YawikDemoJobboard ${$target}</echo>
+        <property file="${project.basedir}/config/build.properties" />
+        <copy todir="../../config/autoload" overwrite="true">
+            <fileset dir="config">
+                <include name="**.dist"/>
+            </fileset>
+            <mapper type="regexp" from="^(.*\.php)\.dist" to="\1"/>
+            <filterchain>
+                <replacetokens begintoken="%%" endtoken="%%">
+                    <token key="yawik.demoskin.piwik" value="${yawik.demoskin.piwik}"/>
+                    <token key="piwik_opt_out" value="${piwik_opt_out}"/>
+                    <token key="imprint_company_name" value="${imprint_company_name}"/>
+                    <token key="imprint_company_fullname" value="${imprint_company_fullname}"/>
+                    <token key="imprint_company_fat" value="${imprint_company_fat}"/>
+                    <token key="imprint_company_zip" value="${imprint_company_zip}"/>
+                    <token key="imprint_company_city" value="${imprint_company_city}"/>
+                    <token key="imprint_person_phone" value="${imprint_person_phone}"/>
+                    <token key="imprint_person_fax" value="${imprint_person_fax}"/>
+                    <token key="imprint_person_email" value="${imprint_person_email}"/>
+                    <token key="imprint_person_name" value="${imprint_person_name}"/>
+                    <token key="approvalMail" value="${approvalMail}"/>
+                </replacetokens>
+            </filterchain>
+        </copy>
+    </target>
+    <!-- ============================================  -->
+    <!-- Target: symlinks                              -->
+    <!-- ============================================  -->
+    <target name="symlinks">
+        <symlink link="${project.basedir}/../../public/YawikDemoJobboard"
+                 target="${project.basedir}/public/" />
+    </target>
+
+</project>

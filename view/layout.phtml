@@ -17,7 +17,7 @@ $notifications = $this->partial('core/notifications');
 <head>
     <meta charset="utf-8">
     <?php echo $this->headTitle($this->translate('YAWIK DEMO'))->setSeparator(' - ')->setAutoEscape(false) ?>
-    <meta name="keywords" value="Open Surce Bewerbermanagement System, Bewerberverwaltung"/>
+    <meta name="keywords" content="Open Surce Bewerbermanagement System, Bewerberverwaltung"/>
     <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
     <?php echo $this->headScript()
         ->prependFile($this->basepath('Core/js/core.init.js'))
@@ -31,7 +31,7 @@ $notifications = $this->partial('core/notifications');
 </head>
 <body>
 <a class="sr-only" href="#content">Skip to main content</a>
-<header id="top" class="navbar navbar-inverse navbar-static-top" role="banner">
+<header id="top" role="banner">
     <div class="container">
         <div class="navbar-header">
             <button class="navbar-toggle collapsed" data-target=".cam-navbar-collapse" data-toggle="collapse" type="button">
@@ -43,7 +43,7 @@ $notifications = $this->partial('core/notifications');
             <a class="navbar-brand hidden-xs" href="<?php echo $this->basepath('/' . $this->params('lang'))?>">YAWIK Jobboard</a>
             <a class="navbar-brand visible-xs" href="<?php echo $this->basepath('/' . $this->params('lang'))?>">Y</a>
         </div>
-        <nav id="main-navigation" class="navbar-collapse collapse cam-navbar-collapse" role="navigation">
+        <nav id="main-navigation" class="navbar-collapse collapse" role="navigation">
             <?php
             echo $this->navigation('Core/Navigation')
                 ->setAcl($this->services('acl'))
@@ -55,9 +55,11 @@ $notifications = $this->partial('core/notifications');
         </nav> <!-- /main-navigation -->
     </div>
 </header>
-<main id="content" class="col-md-12">
-    <?php echo $notifications?>
-    <?php echo $this->content; ?>
+<main id="content">
+     <div class="container">
+     <?php echo $notifications?>
+     <?php echo $this->content; ?>
+     </div>
 </main>
 <!-- /container -->
 <footer id="cam-footer">
@@ -65,7 +67,7 @@ $notifications = $this->partial('core/notifications');
                 <span class="pull-left"><small>&copy; 2013-2014 <a href="http://cross-solution.de">Cross Solution</a>. <?php echo $this->translate('All rights reserved.') ?>
                          </small></span>
                 <span class="pull-right"><small>
-                        Powered by <a href="http://yawik.org">YAWIK</a>
+                      <a href="<?php echo $this->basePath("/about#impressum")?>">Impressum</a> | Powered by <a href="http://yawik.org">YAWIK</a>
                     </small> </span>
 
     </div>

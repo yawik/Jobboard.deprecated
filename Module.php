@@ -2,8 +2,6 @@
 
 namespace YawikDemoJobboard;
 
-use Zend\Mvc\MvcEvent;
-
 /**
  * Bootstrap class of the YAWIK Jobboard
  */

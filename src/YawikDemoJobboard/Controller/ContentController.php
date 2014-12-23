@@ -21,7 +21,21 @@ class ContentController extends AbstractActionController {
      */
     public function indexAction()
     {
+
+        $config                  = $this->getServiceLocator()->get('config');
+
         $viewModel = new ViewModel();
+        $viewModel->setVariables(array(
+            "company_name"=>$config['imprint']['company_name'],
+            "company_fullname"=>$config['imprint']['company_fullname'],
+            "company_zip"=>$config['imprint']['company_zip'],
+            "company_city"=>$config['imprint']['company_city'],
+            "person_name"=>$config['imprint']['person_name'],
+            "person_email"=>$config['imprint']['person_email'],
+            "person_phone"=>$config['imprint']['person_phone'],
+            "person_fax"=>$config['imprint']['person_fax'],
+            "piwik_opt_out"=>$config['piwik_opt_out'],
+        ));
         $viewModel->setTemplate("jobboard/about");
         return $viewModel;
     }

@@ -44,4 +44,17 @@ return array(
 
                 ),
             ),
+        'imprint' => array(
+           'company_name' => '%%imprint_company_name%%',
+           'company_fullname' => '%%imprint_company_fullname%%',
+           'company_fat' => '%%imprint_company_fat%%',
+           'company_zip' => '%%imprint_company_zip%%',
+           'company_city' => '%%imprint_company_city%%',
+           'person_name' => '%%imprint_person_name%%',
+           'person_email' => '%%imprint_person_email%%',
+           'person_phone' => '%%imprint_person_phone%%',
+           'person_fax' => '%%imprint_person_fax%%',
+           'piwik_opt_out' => '%%piwik_opt_out%%',
+        )
+
 	);
