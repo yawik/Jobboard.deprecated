@@ -1,8 +1,10 @@
 @import "yawik.less";
+@import "variables.less";
+@import "bootswatch.less";
 
-@brand-primary: #AC0000;
-@brand-info: #ec7328;
-@brand-success: green;
+//@brand-primary: #AC0000;
+//@brand-info: #ec7328;
+//@brand-success: green;
 
 @link-hover-color: darken(@brand-primary, 5%);
 
@@ -21,24 +23,33 @@
 
 
 
-// Navs
-@nav-link-hover-bg:                         lighten(@brand-info,40%);
-@nav-tabs-justified-active-link-border-color:     lighten(@brand-info,20%);
 
-@nav-tabs-border-color:                     darken(@brand-info,10%);
+/**
+ * footer on the page
+ */
+#footer {
+   .hidden-xs;
+   .navbar;
+   .navbar-fixed-bottom;
+   height: @footer-height;
+   min-height: @footer-height;
+   max-height: @footer-height;
+   background-color: @gray-lighter;
+}
 
-@nav-tabs-link-hover-border-color:          @gray-lighter;
+main {
+        margin-bottom: (@footer-height + 10px);
+}
 
-@nav-tabs-active-link-hover-bg:             lighten(@brand-info,20%);
-@nav-tabs-active-link-hover-color:          @gray;   
-@nav-tabs-active-link-hover-border-color:   #ddd;    
-
-@nav-tabs-justified-link-border-color:            #ddd;
-@nav-tabs-justified-active-link-border-color:     @body-bg;
-
-
-
-
+#footer {
+        .hidden-xs;
+        .navbar;  
+        .navbar-fixed-bottom;
+        height:     @footer-height;
+        min-height: @footer-height;
+        max-height: @footer-height;
+        background-color: @gray-lighter;
+}     
 .nav {
    margin-bottom: -2px;
 }

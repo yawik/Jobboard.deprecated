@@ -11,6 +11,10 @@
 // See: http://yawik.readthedocs.org/en/latest/modules/core/notifications.html
 
 $notifications = $this->partial('core/notifications');
+
+$this->headLink()->prependStylesheet($this->basePath('/YawikDemoJobboard/animate.min.css'));
+$this->headLink()->prependStylesheet($this->basePath('/YawikDemoJobboard/YawikDemoJobboard.css'));
+
 ?>
 <?php echo $this->doctype(); ?>
 <html lang="<?php echo $this->params('lang')?>">
@@ -26,7 +30,7 @@ $notifications = $this->partial('core/notifications');
         ->appendScript('var lang="' . $this->params('lang') . '";'
             . 'var basePath="' . $this->basePath() . '";');
     ?>
-    <?php echo $this->headLink() ->prependStylesheet($this->basePath() . '/YawikDemoJobboard/YawikDemoJobboard.css');?>
+    <?php echo $this->headLink() ?>
     <?php echo $this->headStyle() ?>
 </head>
 <body>
@@ -62,22 +66,15 @@ $notifications = $this->partial('core/notifications');
      </div>
 </main>
 <!-- /container -->
-<footer id="cam-footer">
+<footer id="footer">
     <div class="container">
-                <span class="pull-left"><small>&copy; 2013-2014 <a href="http://cross-solution.de">Cross Solution</a>. <?php echo $this->translate('All rights reserved.') ?>
+                <span class="pull-left"><small>&copy; 2013-<?php echo date("Y")?> <a href="http://cross-solution.de">Cross Solution</a>. <?php echo $this->translate('All rights reserved.') ?>
                          </small></span>
                 <span class="pull-right"><small>
                       <a href="<?php echo $this->basePath("/about#impressum")?>">Impressum</a> | Powered by <a href="http://yawik.org">YAWIK</a>
                     </small> </span>
-
     </div>
 </footer>
-<div
-  class="fb-like"
-  data-share="true"
-  data-width="450"
-  data-show-faces="true">
-</div>
 <?php echo $this->partial("piwik")?>
 </body>
 </html>

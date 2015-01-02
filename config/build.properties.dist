@@ -6,7 +6,7 @@ YAWIK.bundled=false
 /*
 * Put a PIWIK Code into the partial
 */
-yawik.demoskin.piwik=../view/piwik.phtml
+yawik.demoskin.piwik=module/YawikDemoJobboard/view/piwik.phtml
 
 
 

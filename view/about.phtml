@@ -14,21 +14,68 @@ $this->headTitle('Über das Jobportal');
 $this->headscript()->appendScript('$(".alert").alert();');
 
 ?>
+<section class="fadeIn">
 <a name="about"></a>
-<h1>Über das Jobboard</h1>
+<h1>Über YAWIK Jobboard</h1>
 
-Dieses Jobportal nutzt <a href="http://yawik.org" title="Bewerbermanagement">YAWIK</a> und das
-<a href="https://github.com/cbleek/YawikDemoJobboard">YawikDemoJobboard</a>.
-
-
+<p>
+    Das YAWIK Jobboard ist eine Jobbörse. Stellenanzeigen können geschaltet werden. Bewerber können
+    sich auf Stellenanzeigen bewerben. Dieser Stellenmarkt demonstriert die Einsatzmöglichkeiten von
+    <a href="http://yawik.org" title="Bewerbermanagement">YAWIK</a>. Alle hier veröffentlichten
+    Stellenanzeigen sind top aktuell. Dieser Stellenbörse nutzt das
+    <a href="https://github.com/cbleek/YawikDemoJobboard">YawikDemoJobboard</a> Modul.
+</p>
+</section>
+<section>
 <a name="stellenanzeige-schalten"></a>
 <h2>Stellenanzeigen schalten und Bewerber verwalten</h2>
+<p>
+    Sie können kostenlos Stellenanzeigen eingeben. Eingegegebene Stellenanzeigen können auf
+    verschiedenen Kanälen veröffentlichet werden. Aktuell:
+</p>
+<div class="row">
+    <div class="container">
+        <div class="col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">YAWIK Jobportal</h3>
+                </div>
+                <div class="panel-body">
+                    Ihre Stellenanzeige erscheint unter:
+                    http://jobs.yawik.org.
+                    kostenlos, 30 tage.
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" data-test="fadeInDown">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Jobsintown.de</h3>
+                </div>
+                <div class="panel-body">
+                    Ihre Stellenanzeige erscheint im Karriere Netzwerk
+                    von Jobsintown.
+                    Preis: 199,-€, Schaltungsdauer: 30 Tage
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Ihre Homepage</h3>
+                </div>
+                <div class="panel-body">
+                    Comming soon
+                </div>
+            </div>
+        </div>
+    </div>
 
-Sie können kostenlos Stellenanzeigen eingeben. Eingegegebene Stellenanzeigen können Sie auf
-verschiedenen Kanälen veröffentlichen. Die Veröffentlichung auf diesem Jobportal ist kostenlos.
-
+</div>
+<p></p>
+Die Veröffentlichung auf diesem Jobportal ist <span class="label label-primary">kostenlos</span>.
 Um Stellenanzeigen eingeben zu können, müssen Sie sich anmelden.
-
+</p>
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -81,10 +128,14 @@ Um Stellenanzeigen eingeben zu können, müssen Sie sich anmelden.
             <span class="sr-only">Next</span>
         </a>
     </div>
-
+</section>
+<section>
     <a name="nutzungsbedingungen"></a>
     <h2>Nutzungsbedingungen</h2>
 
+    <p>Coming soon</p>
+</section>
+<section>
     <a name="impressum"></a>
     <h2>Impressum</h2>
 
@@ -102,7 +153,8 @@ Um Stellenanzeigen eingeben zu können, müssen Sie sich anmelden.
         <div>Fax: <?php echo $this->person_fax ?></div>
         <div>Ust ID: <?php echo $this->company_fat ?></div>
     </address>
-
+</section>
+<section>
     <a name="datenschutz"></a>
     <h2>Datenschutzerklärung</h2>
     <p>
@@ -202,6 +254,6 @@ Um Stellenanzeigen eingeben zu können, müssen Sie sich anmelden.
         </li>
 
     </ol>
-
+</section>
 
 

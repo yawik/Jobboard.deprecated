@@ -14,6 +14,7 @@ return array('view_manager' => array(
         'piwik'                => __DIR__ . '/../view/piwik.phtml',
         'jobboard/about'       => __DIR__ . '/../view/about.phtml',
         'jobs/form/list-filter' => __DIR__ . '/../view/search-for-jobs.phtml',
+        'templates/default/index' => __DIR__ . '/../view/templates/default/index.phtml'
     ),
 ),
              'translator'   => array(
