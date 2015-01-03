@@ -12,15 +12,86 @@
 
 $this->headTitle('Über das Jobportal');
 $this->headscript()->appendScript('$(".alert").alert();');
-
+$this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
 ?>
-<section class="fadeIn">
+<script>
+    new WOW().init();
+</script>
+<style>
+    section {
+        margin-top: 50px;
+    }
+    .scroll-down {
+        bottom: 20px;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+    }
+    .scroll-down .btn {
+        border: 2px solid #fff;
+        border-radius: 100%;
+        color: #fff;
+        font-size: 30px;
+        height: 50px;
+        letter-spacing: normal;
+        line-height: 50px;
+        padding: 0;
+        transition: all 0.5s ease 0s;
+        width: 50px;
+    }
+    .scroll-down .btn:hover {
+        border-color: rgba(255, 255, 255, 0.5);
+        color: rgba(255, 255, 255, 0.5);
+        outline: 0 none;
+    }
+
+</style>
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-expanded">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#yk-jobs-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="<?php echo $this->basePath("/");?>">
+                YAWIK Jobboard
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="yk-jobs-navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden">
+                    <a href="#page-top"></a>
+                </li>
+                <li>
+                    <a href="#about">About</a>
+                </li>
+                <li>
+                    <a href="#impressum">Impressum</a>
+                </li>
+                <li>
+                    <a href="#datenschutz">Datenschutz</a>
+                </li>
+                <li>
+                    <a href="#nutzungsbedingungen">Nutzungsbedingungen</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
 <a name="about"></a>
+<section class="wow fadeIn">
+
 <h1>Über YAWIK Jobboard</h1>
 
 <p>
-    Das YAWIK Jobboard ist eine Jobbörse. Stellenanzeigen können geschaltet werden. Bewerber können
-    sich auf Stellenanzeigen bewerben. Dieser Stellenmarkt demonstriert die Einsatzmöglichkeiten von
+    Das YAWIK Jobboard ist eine quelloffene Jobbörse. Stellenanzeigen können geschaltet werden. Bewerber können
+    sich auf Stellenanzeigen bewerben. Das integrierte Bewerbermanagement ermöglicht es Bewerbungen zu verwalten.
+    Dieser Stellenmarkt demonstriert die Einsatzmöglichkeiten von
     <a href="http://yawik.org" title="Bewerbermanagement">YAWIK</a>. Alle hier veröffentlichten
     Stellenanzeigen sind top aktuell. Dieser Stellenbörse nutzt das
     <a href="https://github.com/cbleek/YawikDemoJobboard">YawikDemoJobboard</a> Modul.
@@ -36,7 +107,7 @@ $this->headscript()->appendScript('$(".alert").alert();');
 <div class="row">
     <div class="container">
         <div class="col-md-4">
-            <div class="panel panel-info">
+            <div class="wow slideInLeft fadeIn panel panel-info" data-wow-duration="0.5s" data-wow-delay="0s">
                 <div class="panel-heading">
                     <h3 class="panel-title">YAWIK Jobportal</h3>
                 </div>
@@ -48,7 +119,7 @@ $this->headscript()->appendScript('$(".alert").alert();');
             </div>
         </div>
         <div class="col-md-4" data-test="fadeInDown">
-            <div class="panel panel-info">
+            <div class="wow fadeIn panel panel-info">
                 <div class="panel-heading">
                     <h3 class="panel-title">Jobsintown.de</h3>
                 </div>
@@ -60,12 +131,15 @@ $this->headscript()->appendScript('$(".alert").alert();');
             </div>
         </div>
         <div class="col-md-4">
-            <div class="panel panel-info">
+            <div class="panel panel-info wow slideInRight" data-wow-duration="0.5s" data-wow-delay="0s">
                 <div class="panel-heading">
                     <h3 class="panel-title">Ihre Homepage</h3>
                 </div>
                 <div class="panel-body">
-                    Comming soon
+                    Coming soon
+                    <p>
+                        Einfach ein Javascript in die eigene Homepage einbauen.
+                    </p>
                 </div>
             </div>
         </div>
@@ -73,10 +147,8 @@ $this->headscript()->appendScript('$(".alert").alert();');
 
 </div>
 <p></p>
-Die Veröffentlichung auf diesem Jobportal ist <span class="label label-primary">kostenlos</span>.
-Um Stellenanzeigen eingeben zu können, müssen Sie sich anmelden.
-</p>
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
     <!-- Indicators -->
     <ol class="carousel-indicators">
         <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -95,10 +167,12 @@ Um Stellenanzeigen eingeben zu können, müssen Sie sich anmelden.
                     <h4 class="media-heading">Eingabe der Grunddaten</h4>
                     Benötigt wird der Anzeigentitel und der Ort der Anstellung
                 </div>
+
             </div>
             <div class="carousel-caption">
                 Schritt 1
             </div>
+
         </div>
         <div class="item">
 
@@ -129,14 +203,20 @@ Um Stellenanzeigen eingeben zu können, müssen Sie sich anmelden.
         </a>
     </div>
 </section>
-<section>
-    <a name="nutzungsbedingungen"></a>
+<a name="nutzungsbedingungen"></a>
+<section class="wow fadeIn">
+
     <h2>Nutzungsbedingungen</h2>
 
-    <p>Coming soon</p>
+    <p>
+        Die Veröffentlichung auf diesem Jobportal ist <span class="label label-primary">kostenlos</span>.
+        Um Stellenanzeigen eingeben zu können, müssen Sie sich <a href="<?php echo $this->basePath("/login")?>">anmelden</a>. Die Schaltungsdauer von Stellenanzeigen
+        beträgt 30 Tage.
+    </p>
 </section>
-<section>
-    <a name="impressum"></a>
+<a name="impressum"></a>
+<section class="wow bounceInUp">
+
     <h2>Impressum</h2>
 
     verantworlich für den Inhalt dieser Seiten ist:
@@ -154,8 +234,13 @@ Um Stellenanzeigen eingeben zu können, müssen Sie sich anmelden.
         <div>Ust ID: <?php echo $this->company_fat ?></div>
     </address>
 </section>
-<section>
-    <a name="datenschutz"></a>
+<div class="scroll-down">
+    <a class="btn" href="#about">
+        <i class="fa fa-angle-down fa-fw"></i>
+    </a>
+</div>
+<a name="datenschutz"></a>
+<section class="wow bounceInUp">
     <h2>Datenschutzerklärung</h2>
     <p>
         Betreiber der Seite ist <?php echo $this->company_fullname ?>. im folgenden <?php echo $this->company_name ?> genannt.
