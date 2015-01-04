@@ -17,20 +17,20 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
 <script>
     new WOW().init();
 </script>
+
 <style>
     section {
         margin-top: 50px;
     }
     .scroll-down {
-        bottom: 20px;
-        position: absolute;
         text-align: center;
         width: 100%;
     }
     .scroll-down .btn {
-        border: 2px solid #fff;
+        border: 2px solid #d9230f;;
         border-radius: 100%;
         color: #fff;
+        color: #d9230f;
         font-size: 30px;
         height: 50px;
         letter-spacing: normal;
@@ -40,15 +40,17 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
         width: 50px;
     }
     .scroll-down .btn:hover {
-        border-color: rgba(255, 255, 255, 0.5);
-        color: rgba(255, 255, 255, 0.5);
+        border-color: rgba(255,165,0, 0.5);
+        color: rgba(255,165,0, 0.5);
         outline: 0 none;
+    }
+    #yk-carousel {
+	height: 300px;
     }
 
 </style>
 <a name="about"></a>
 <section class="wow fadeIn">
-
 <h1>Über YAWIK Jobboard</h1>
 
 <p>
@@ -62,6 +64,7 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
 
 </section>
 <a name="stellenanzeige-schalten"></a>
+
 <section class="wow fadeIn">
 <h2>Stellenanzeigen schalten und Bewerber verwalten</h2>
 <p>
@@ -111,27 +114,27 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
 
 </div>
 </section>
+
 <a name="funktionsweise"></a>
 <section>
 <h1>Wie funktioniert das YAWIK Jobboard?</h1>
 <div id="yk-carousel" class="carousel slide" data-ride="carousel" data-interval="3000">
-    <!-- Indicators -->
     <ol class="carousel-indicators">
         <li data-target="#yk-carousel" data-slide-to="0" class="active"></li>
         <li data-target="#yk-carousel" data-slide-to="1"></li>
         <li data-target="#yk-carousel" data-slide-to="2"></li>
+        <li data-target="#yk-carousel" data-slide-to="3"></li>
     </ol>
 
-    <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
         <div class="item active">
             <div class="media">
                 <a class="media-left" href="#">
-                    <img src="<?php echo $this->basePath("/YawikDemoJobboard/images/baseform.png")?>" alt="Eingabe der Basisdaten"> Test
+                    <img src="<?php echo $this->basePath("/YawikDemoJobboard/images/login.png")?>" alt="Social Login">
                 </a>
                 <div class="media-body">
-                    <h4 class="media-heading">Eingabe der Grunddaten</h4>
-                    Benötigt wird der Anzeigentitel und der Ort der Anstellung
+                    <h3 class="media-heading">Kostenlos registrieren.</h3>
+                    
                 </div>
 
             </div>
@@ -140,36 +143,55 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
             </div>
 
         </div>
+
+	<div class="item">
+            <div class="media">
+                <a class="media-left" href="#">
+                    <img src="<?php echo $this->basePath("/YawikDemoJobboard/images/baseform.png")?>" alt="Eingabe der Basisdaten">
+                </a>
+                <div class="media-body">
+                    <h3 class="media-heading">Eingabe der Grunddaten</h3>
+                    Benötigt wird der Anzeigentitel und der Ort der Anstellung
+                </div>
+            </div>
+            <div class="carousel-caption">
+                Schritt 2
+            </div>
+
+        </div>
+
+
         <div class="item">
 
             <div class="item active">
                 <div class="media">
                     <a class="media-left" href="#">
-                        <img src="<?php echo $this->basePath("/YawikDemoJobboard/images/baseform.png")?>" alt="Eingabe der Basisdaten"> Test
+                        <img src="<?php echo $this->basePath("/YawikDemoJobboard/images/multiposting.png")?>" alt="Multiposting">
                     </a>
                     <div class="media-body">
-                        <h4 class="media-heading">Es folgt die Bearbeitung der Anzeige</h4>
+                        <h3 class="media-heading">Es folgt die Bearbeitung der Anzeige</h3>
                         Benötigt wird der Anzeigentitel und der Ort der Anstellung
                     </div>
                 </div>
                 <div class="carousel-caption">
-                    Schritt 2
+                    Schritt 3
                 </div>
             </div>
         </div>
 
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <a class="left carousel-control" href="#yk-carousel" role="button" data-slide="prev">
             <span class="fa fa-arrow-left" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
-        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <a class="right carousel-control" href="#yk-carousel" role="button" data-slide="next">
             <span class="fa fa-arrow-right " aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
     </div>
 </section>
+
 <a name="nutzungsbedingungen"></a>
+
 <section class="wow fadeIn">
 
     <h2>Nutzungsbedingungen</h2>
@@ -200,12 +222,14 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
         <div>Ust ID: <?php echo $this->company_fat ?></div>
     </address>
 </section>
+
 <div class="scroll-down">
     <a class="btn" href="#about">
         <i class="fa fa-angle-down fa-fw"></i>
     </a>
 </div>
 <a name="datenschutz"></a>
+
 <section class="wow bounceInUp">
     <h2>Datenschutzerklärung</h2>
     <p>
@@ -305,5 +329,4 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
         </li>
     </ol>
 </section>
-
 
