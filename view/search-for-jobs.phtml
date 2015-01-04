@@ -7,6 +7,8 @@
  * @license   MIT
  */
 $this->headScript()->appendFile($this->basePath('Jobs/js/index.list-filter-form.js'));
+$this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'));
+
 $translate = $this->plugin('translate');
 
 $createRadioGroup = function ($element, $id) use ($translate) {
@@ -53,7 +55,10 @@ $statusElement = $params->get('status');
   <?php $createRadioGroup($params->get('by'), 'by') ?>
   <?php $createRadioGroup($params->get('status'), 'status') ?>
 <?php else: ?>
-  <span class="animated swing btn btn-info pull-right">
+  <script>
+    new WOW().init();
+  </script>
+  <span class="wow swing btn btn-info" data-wow-delay="1s" data-wow-duration="2.5s" data-wow-iteration="2">
       <a href="<?php echo $this->basePath("/about#stellenanzeige-schalten")?>">Stellenanzeige schalten</a></span>
 <?php endif; ?>
 </div>

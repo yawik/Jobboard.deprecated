@@ -12,7 +12,7 @@
 
 $this->headTitle('Über das Jobportal');
 $this->headscript()->appendScript('$(".alert").alert();');
-$this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
+$this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'));
 ?>
 <script>
     new WOW().init();
@@ -46,43 +46,6 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
     }
 
 </style>
-<nav class="navbar navbar-inverse navbar-fixed-top navbar-expanded">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#yk-jobs-navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="<?php echo $this->basePath("/");?>">
-                YAWIK Jobboard
-            </a>
-        </div>
-        <div class="collapse navbar-collapse" id="yk-jobs-navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="hidden">
-                    <a href="#page-top"></a>
-                </li>
-                <li>
-                    <a href="#about">About</a>
-                </li>
-                <li>
-                    <a href="#impressum">Impressum</a>
-                </li>
-                <li>
-                    <a href="#datenschutz">Datenschutz</a>
-                </li>
-                <li>
-                    <a href="#nutzungsbedingungen">Nutzungsbedingungen</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
 <a name="about"></a>
 <section class="wow fadeIn">
 
@@ -93,9 +56,10 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
     sich auf Stellenanzeigen bewerben. Das integrierte Bewerbermanagement ermöglicht es Bewerbungen zu verwalten.
     Dieser Stellenmarkt demonstriert die Einsatzmöglichkeiten von
     <a href="http://yawik.org" title="Bewerbermanagement">YAWIK</a>. Alle hier veröffentlichten
-    Stellenanzeigen sind top aktuell. Dieser Stellenbörse nutzt das
+    Stellenanzeigen sind top aktuell. Diese Stellenbörse nutzt YAWIK in Kombination mit dem 
     <a href="https://github.com/cbleek/YawikDemoJobboard">YawikDemoJobboard</a> Modul.
 </p>
+
 </section>
 <a name="stellenanzeige-schalten"></a>
 <section class="wow fadeIn">
@@ -146,14 +110,16 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
     </div>
 
 </div>
-<p></p>
-
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
+</section>
+<a name="funktionsweise"></a>
+<section>
+<h1>Wie funktioniert das YAWIK Jobboard?</h1>
+<div id="yk-carousel" class="carousel slide" data-ride="carousel" data-interval="3000">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        <li data-target="#yk-carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#yk-carousel" data-slide-to="1"></li>
+        <li data-target="#yk-carousel" data-slide-to="2"></li>
     </ol>
 
     <!-- Wrapper for slides -->
@@ -194,11 +160,11 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
 
         <!-- Controls -->
         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="fa fa-arrow-left" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
         <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="fa fa-arrow-right " aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
     </div>
@@ -257,7 +223,7 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
         welche Daten während Ihres Besuchs auf der Homepage erfasst und wie diese genutzt werden:
     </p>
     <ol>
-        <li>
+        <li class="wow fadeInLeft">
             <h4>Erhebung und Verarbeitung der Daten</h4>
             Informationen, die Ihr Browser uns direkt oder indirekt über Schnittstellen übermitteln, werden von
             <?php echo $this->company_name ?> automatisch in ihren Server–Logfiles erhoben und gespeichert. Dies umfasst beispielsweise
@@ -269,7 +235,7 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
             16 Jahren vorbehalten. Eltern oder Aufsichtsberechtigte sind für den Schutz der Privatsphäre ihrer
             Kinder verantwortlich.
         </li>
-        <li>
+        <li class="wow fadeInLeft">
             <h4>Nutzung und Weitergabe personenbezogener Daten</h4>
             Personenbezogene Daten, die Sie als registrierter Nutzer <?php echo $this->company_name ?> zur Verfügung gestellt haben,
             werden elektronisch gespeichert. Sie haben als Nutzer jederzeit die Möglichkeit, Daten entweder
@@ -284,7 +250,7 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
             und zur Verbesserung und bedarfsgerechten Gestaltung des Dienstes. Ein Widerruf ist schriftlich
             möglich.
         </li>
-        <li>
+        <li class="wow fadeInLeft">
             <h4>Verwendung von Cookies</h4>
             <?php echo $this->company_name ?> verwendet an mehreren Stellen der Webseite so genannte Cookies. Das sind kleine
             Textdateien, die auf Ihrem Rechner abgelegt werden und die Ihr Browser speichert. Sie dienen dazu,
@@ -293,12 +259,12 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
             Schaden an und enthalten keine Viren. Möchten Sie eine Speicherung dennoch verhindern, so können
             Sie dies durch entsprechende Einstellungen in Ihrem Browser verhindern.
         </li>
-        <li>
+        <li class="wow fadeInLeft">
             <h4>Analyse-Software</h4>
             <?php echo $this->company_name ?> nutzt zur Erhebung von generellen Nutzerstatistiken auf PIWIK zurück.
             <?php echo $this->piwik_opt_out ?>
         </li>
-        <li>
+        <li class="wow fadeInLeft">
             <h4>Datensicherheit</h4>
             Durch technische und organisatorische Maßnahmen werden unsere Webseiten gegen Verlust, Zerstörung,
             Zugriff, Veränderung oder Verbreitung Ihrer Daten durch unbefugte Personen geschützt. Der Zugang zu
@@ -311,33 +277,32 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
             Sicherheit nicht realisierbar. Wir bitten Sie, uns bei Missbrauch oder bei Anzeichen von Missbrauch
             sofort zu informieren. Wir werden umgehend entsprechende Maßnahmen ergreifen.
         </li>
-        <li>
+        <li class="wow fadeInLeft">
             <h4>Auskunftsrecht</h4>
             Wir geben Ihnen jederzeit darüber Auskunft welche Daten die bezüglich Ihrer Person, deren Herkunft
             und Empfänger sowie zu welchem Zweck gespeichert sind. Dazu reicht eine schriftliche Anfrage an die
             im <a href="<?php echo $this->basePath("/about#impressum")?>">Impressum</a> angegebene Adresse. Aus
             Sicherheitsgründen bitten wir Sie eine Kopie des Personalausweises beizulegen.
         </li>
-        <li>
+        <li class="wow fadeInLeft">
             <h4>Änderungen der Datenschutzerklärung</h4>
             Das Datenschutzrecht ändert sich regelmäßig. Auch neue Serviceleistungen kommen hinzu. Deshalb
             behält sich die <?php echo $this->company_name ?> das Recht vor, diese Datenschutzerklärungen jederzeit zu ändern. Sie
             werden als Nutzer von <?php echo $this->company_name ?> über diese Änderungen per Email informiert.
         </li>
-        <li>
+        <li class="wow fadeInLeft">
             <h4>Sicherheitshinweis</h4>
             Wir ergreifen alle technischen und organisatorischen Möglichkeiten, um Ihre personenbezogenen
             Daten so zu speichern, dass sie für Dritte nicht zugänglich sind. Vor allem bei E Mail Verkehr
             kann die vollständige Datensicherheit jedoch generell nicht sichergestellt werden. Wir empfehlen
             Ihnen deshalb, bei vertraulichen Informationen den Postweg zu nutzen.
         </li>
-        <li>
+        <li class="wow fadeInLeft">
             <h4>Weitere Informationen</h4>
             Wenn Sie weitere Fragen haben, die diese Datenschutzerklärung beantwortet, dann wenden Sie sich
             bitte jederzeit an die Geschäftsführung von <?php echo $this->company_name ?>, um weitere Informationen zu erhalten.
             Die Anschrift finden Sie unter <a href="<?php echo $this->basePath("/about#impressum")?>">Impressum</a>.
         </li>
-
     </ol>
 </section>
 

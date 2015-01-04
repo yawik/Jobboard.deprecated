@@ -13,6 +13,7 @@ return array('view_manager' => array(
         'auth/manage/password' => __DIR__ . '/../view/password.phtml',
         'piwik'                => __DIR__ . '/../view/piwik.phtml',
         'jobboard/about'       => __DIR__ . '/../view/about.phtml',
+        'main-navigation'      => __DIR__ . '/../view/main-navigation.phtml',
         'jobs/form/list-filter' => __DIR__ . '/../view/search-for-jobs.phtml',
         'templates/default/index' => __DIR__ . '/../view/templates/default/index.phtml'
     ),
