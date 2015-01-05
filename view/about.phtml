@@ -10,7 +10,7 @@
 
 <?php
 
-$this->headTitle('Über das Jobportal');
+$this->headTitle('Über YAWIK Jobboard');
 $this->headscript()->appendScript('$(".alert").alert();');
 $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'));
 ?>
@@ -44,7 +44,7 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
         color: rgba(255,165,0, 0.5);
         outline: 0 none;
     }
-    #yk-carousel {
+    #jb-carousel {
 	height: 300px;
     }
 
@@ -118,12 +118,12 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
 <a name="funktionsweise"></a>
 <section>
 <h1>Wie funktioniert das YAWIK Jobboard?</h1>
-<div id="yk-carousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+<div id="jb-carousel" class="carousel slide" data-ride="carousel" data-interval="3000">
     <ol class="carousel-indicators">
-        <li data-target="#yk-carousel" data-slide-to="0" class="active"></li>
-        <li data-target="#yk-carousel" data-slide-to="1"></li>
-        <li data-target="#yk-carousel" data-slide-to="2"></li>
-        <li data-target="#yk-carousel" data-slide-to="3"></li>
+        <li data-target="#jb-carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#jb-carousel" data-slide-to="1"></li>
+        <li data-target="#jb-carousel" data-slide-to="2"></li>
+        <li data-target="#jb-carousel" data-slide-to="3"></li>
     </ol>
 
     <div class="carousel-inner" role="listbox">
@@ -157,7 +157,6 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
             <div class="carousel-caption">
                 Schritt 2
             </div>
-
         </div>
 
 
@@ -179,11 +178,11 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
             </div>
         </div>
 
-        <a class="left carousel-control" href="#yk-carousel" role="button" data-slide="prev">
+        <a class="left carousel-control" href="#jb-carousel" role="button" data-slide="prev">
             <span class="fa fa-arrow-left" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
-        <a class="right carousel-control" href="#yk-carousel" role="button" data-slide="next">
+        <a class="right carousel-control" href="#jb-carousel" role="button" data-slide="next">
             <span class="fa fa-arrow-right " aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>

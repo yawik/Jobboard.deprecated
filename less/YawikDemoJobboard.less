@@ -41,15 +41,21 @@ main {
         margin-bottom: (@footer-height + 10px);
 }
 
-#footer {
-        .hidden-xs;
-        .navbar;  
-        .navbar-fixed-bottom;
-        height:     @footer-height;
-        min-height: @footer-height;
-        max-height: @footer-height;
-        background-color: @gray-lighter;
-}     
 .nav {
    margin-bottom: -2px;
+}
+
+
+/**
+* removes the gradients from carousel control
+*/
+.carousel-control {
+  &.left {
+    #gradient > .horizontal(@start-color: rgba(0,0,0,0); @end-color: rgba(0,0,0,0));
+  }
+  &.right {
+    left: auto;
+    right: 0;
+    #gradient > .horizontal(@start-color: rgba(0,0,0,0); @end-color: rgba(0,0,0,0));
+  }
 }
