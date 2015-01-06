@@ -21,7 +21,9 @@
 @state-info-bg:                  lighten(@brand-info,40%);
 @state-info-border:              darken(spin(@state-info-bg, -10), 7%);
 
-
+body {
+  margin-top: @navbar-height;
+}
 
 
 /**
@@ -59,3 +61,4 @@ main {
     #gradient > .horizontal(@start-color: rgba(0,0,0,0); @end-color: rgba(0,0,0,0));
   }
 }
+
