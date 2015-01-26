@@ -32,6 +32,11 @@ imprint_person_phone=0815-4711
 imprint_person_fax=0815-4711
 
 /**
+* Name of the jobboard
+*/
+portal_name=YAWIK.Jobboard
+
+/**
 * piwik_opt_out
 */
 piwik_opt_out=<!-- See http://piwik.org/docs/privacy/#step-3-include-a-web-analytics-opt-out-feature-on-your-site-using-an-iframe -->

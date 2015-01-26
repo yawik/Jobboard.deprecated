@@ -194,12 +194,24 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
 <section class="wow fadeIn">
 
     <h2>Nutzungsbedingungen</h2>
+    <ul>
+        <li>
+            <b>Kosten:</b>
+            <p>       <?php echo $this->portal_name ?> ermöglicht es Ihnen die Eingabe von Stellenanzeigen und deren Veröffentlichung
+                auf verschiedenen Kanälen. Die Nutzung von <?php echo $this->portal_name ?> ist kostenlos. Die Veröffentlichung
+                auf bestimmten Kanälen kann mit Kosten verbunden sein.
+            </p>
+
+        </li>
+
 
     <p>
-        Die Veröffentlichung auf diesem Jobportal ist <span class="label label-primary">kostenlos</span>.
+        Die Veröffentlichung von bis zu 5 Stellenanzeigen auf diesem Jobportal ist <span class="label label-primary">kostenlos</span>.
         Um Stellenanzeigen eingeben zu können, müssen Sie sich <a href="<?php echo $this->basePath("/login")?>">anmelden</a>. Die Schaltungsdauer von Stellenanzeigen
         beträgt 30 Tage.
+
     </p>
+    </ul>
 </section>
 <a name="impressum"></a>
 <section class="wow bounceInUp">

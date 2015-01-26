@@ -36,7 +36,7 @@ return array(
                     'jobboard' => array(
                         'label' => 'About',
                         'route' => 'lang/about',
-                        'order' => 65,                             // allows to order the menu items
+                        'order' => 2000,                             // allows to order the menu items
                     //    'resource' => 'route/lang/organizations',  // if a resource is defined, the acl will be applied.
 
 
