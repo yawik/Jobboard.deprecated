@@ -38,8 +38,8 @@ $this->headLink()->prependStylesheet($this->basePath('/YawikDemoJobboard/YawikDe
 </head>
 <body>
 <a class="sr-only" href="#content">Skip to main content</a>
-<header id="top" role="banner">
-    <div class=" navbar-inverse navbar-fixed-top">
+<header id="top" role="banner" class="container-fluid">
+    <div class="navbar-inverse navbar-fixed-top">
         <div class="navbar-header">
             <button class="navbar-toggle collapsed" data-target=".cam-navbar-collapse" data-toggle="collapse"
                     type="button">
@@ -66,14 +66,14 @@ $this->headLink()->prependStylesheet($this->basePath('/YawikDemoJobboard/YawikDe
     </div>
 </header>
 <main id="content">
-     <div class="container">
+     <div class="container-fluid">
      <?php echo $notifications?>
      <?php echo $this->content; ?>
      </div>
 </main>
 <!-- /container -->
 <footer id="footer">
-    <div class="container">
+    <div class="container-fluid">
                 <span class="pull-left"><small>&copy; 2013-<?php echo date("Y")?> <a href="http://cross-solution.de">Cross Solution</a>. <?php echo $this->translate('All rights reserved.') ?>
                          </small></span>
                 <span class="pull-right"><small>
