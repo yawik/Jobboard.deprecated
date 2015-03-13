@@ -32,7 +32,7 @@ return array('view_manager' => array(
                      'lang' => array(
                          'options' => array(
                              'defaults' => array(
-                                 'controller' => 'Jobs/Index', //Overwrites the route of the start Page
+                                 'controller' => 'Jobs/Jobboard', //Overwrites the route of the start Page
                                  'action'     => 'index',
                              ),
                          ),
@@ -50,6 +50,29 @@ return array('view_manager' => array(
                              ),
                          ),
                      ),
+                 ),
+             ),
+             'acl' => array(
+                 'rules' => array(
+                     // guests are allowed to see a list of companies.
+                     'guest' => array(
+                         'allow' => array(
+                             'route/lang/organizations',
+                         ),
+                     ),
+                 ),
+             ),
+             'navigation' => array(
+                 'default' => array(
+                     'jobboard' => array(
+                         'label' => 'About',
+                         'route' => 'lang/about',
+                         'order' => 2000,                             // allows to order the menu items
+                         //    'resource' => 'route/lang/organizations',  // if a resource is defined, the acl will be applied.
+
+
+                     ),
+
                  ),
              ),
              'controllers' => array(

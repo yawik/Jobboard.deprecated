@@ -3,9 +3,9 @@
  * YAWIK
  *
  * @filesource
- * @copyright (c) 2013-2014 Cross Solution (http://cross-solution.de)
+ * @copyright (c) 2013-2015 Cross Solution (http://cross-solution.de)
  * @author cbleek
- * @license   AGPLv3
+ * @license   MIT
  */
 
 namespace YawikDemoJobboard\Controller;
@@ -22,7 +22,7 @@ class ContentController extends AbstractActionController {
     public function indexAction()
     {
 
-        $config                  = $this->getServiceLocator()->get('config');
+        $config = $this->getServiceLocator()->get('config');
 
         $viewModel = new ViewModel();
         $viewModel->setVariables(array(
