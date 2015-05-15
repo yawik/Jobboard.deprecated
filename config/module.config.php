@@ -12,7 +12,7 @@ return array('view_manager' => array(
         'core/index/index'     => __DIR__ . '/../view/index.phtml',
         'auth/manage/password' => __DIR__ . '/../view/password.phtml',
         'piwik'                => __DIR__ . '/../view/piwik.phtml',
-        'jobboard/about'       => __DIR__ . '/../view/about.phtml',
+        'content/about'       => __DIR__ . '/../view/about.phtml',
         'main-navigation'      => __DIR__ . '/../view/main-navigation.phtml',
         'jobs/form/list-filter' => __DIR__ . '/../view/search-for-jobs.phtml',
         'templates/default/index' => __DIR__ . '/../view/templates/default/index.phtml'
@@ -36,19 +36,6 @@ return array('view_manager' => array(
                                  'action'     => 'index',
                              ),
                          ),
-                         'child_routes' => array(
-
-                             'about'    => array(
-                                 'type' => 'Literal',          // route is interpreted as string
-                                 'options' => array(
-                                     'route' => '/about',
-                                     'defaults' => array(
-                                         'controller' => 'Jobboard/Content',
-                                         'action'     => 'index',
-                                     ),
-                                 ),
-                             ),
-                         ),
                      ),
                  ),
              ),
@@ -64,20 +51,11 @@ return array('view_manager' => array(
              ),
              'navigation' => array(
                  'default' => array(
-                     'jobboard' => array(
+                     'about'    => array(
                          'label' => 'About',
-                         'route' => 'lang/about',
-                         'order' => 2000,                             // allows to order the menu items
-                         //    'resource' => 'route/lang/organizations',  // if a resource is defined, the acl will be applied.
-
-
+                         'order' => 200,
+                         'uri'   => '/de/content/about'
                      ),
-
                  ),
-             ),
-             'controllers' => array(
-                'invokables' => array(
-                  'Jobboard/Content' => '\YawikDemoJobboard\Controller\ContentController',
-                ),
              ),
 );

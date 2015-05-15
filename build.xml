@@ -2,7 +2,7 @@
     <target name="install" depends="symlinks">
         <echo>YawikDemoJobboard ${$target}</echo>
         <property file="${project.basedir}/config/build.properties" />
-        <copy todir="../../config/autoload" overwrite="true">
+        <copy todir="../../config/autoload" overwrite="false">
             <fileset dir="config">
                 <include name="**.dist"/>
             </fileset>
