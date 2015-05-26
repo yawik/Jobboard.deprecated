@@ -10,7 +10,6 @@ return array('view_manager' => array(
     'template_map' => array(
         'layout/layout'        => __DIR__ . '/../view/layout.phtml',
         'core/index/index'     => __DIR__ . '/../view/index.phtml',
-        'auth/manage/password' => __DIR__ . '/../view/password.phtml',
         'piwik'                => __DIR__ . '/../view/piwik.phtml',
         'content/about'       => __DIR__ . '/../view/about.phtml',
         'main-navigation'      => __DIR__ . '/../view/main-navigation.phtml',
