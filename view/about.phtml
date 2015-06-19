@@ -7,12 +7,17 @@
  * @author cbleek
  * @license  MIT
  */ ?>
-
 <?php
 
 $this->headTitle('Über YAWIK Jobboard');
 $this->headscript()->appendScript('$(".alert").alert();');
 $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'));
+
+/* @var $options \Core\Options\ModuleOptions */
+$options = $this->services('Core/Options');
+$siteName = $options->getSiteName();
+$operator = $options->getOperator();
+
 ?>
 <script>
     new WOW().init();
@@ -29,8 +34,6 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
     .scroll-down .btn {
         border: 2px solid #d9230f;;
         border-radius: 100%;
-        color: #fff;
-        color: #d9230f;
         font-size: 30px;
         height: 50px;
         letter-spacing: normal;
@@ -197,20 +200,19 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
     <ul>
         <li>
             <b>Kosten:</b>
-            <p>       <?php echo $this->portal_name ?> ermöglicht es Ihnen die Eingabe von Stellenanzeigen und deren Veröffentlichung
+            <p>       <?php echo $siteName ?> ermöglicht es Ihnen die Eingabe von Stellenanzeigen und deren Veröffentlichung
                 auf verschiedenen Kanälen. Die Nutzung von <?php echo $this->portal_name ?> ist kostenlos. Die Veröffentlichung
                 auf bestimmten Kanälen kann mit Kosten verbunden sein.
             </p>
 
         </li>
 
+        <li>
+            Die Veröffentlichung von bis zu 5 Stellenanzeigen auf diesem Jobportal ist <span class="label label-primary">kostenlos</span>.
+            Um Stellenanzeigen eingeben zu können, müssen Sie sich <a href="<?php echo $this->basePath("/login")?>">anmelden</a>.
+            Die Schaltungsdauer von Stellenanzeigen beträgt 30 Tage.
+        </li>
 
-    <p>
-        Die Veröffentlichung von bis zu 5 Stellenanzeigen auf diesem Jobportal ist <span class="label label-primary">kostenlos</span>.
-        Um Stellenanzeigen eingeben zu können, müssen Sie sich <a href="<?php echo $this->basePath("/login")?>">anmelden</a>. Die Schaltungsdauer von Stellenanzeigen
-        beträgt 30 Tage.
-
-    </p>
     </ul>
 </section>
 <a name="impressum"></a>
@@ -221,16 +223,16 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
     verantworlich für den Inhalt dieser Seiten ist:
 
     <address>
-        <div><?php echo $this->person_name ?></div>
-        <div><?php echo $this->company_street ?></div>
-        <div><?php echo $this->company_zip ?> <?php echo $this->company_city ?></div>
+        <div><?php echo $operator['name'] ?></div>
+        <div><?php echo $operator['street'] ?></div>
+        <div><?php echo $operator['postalCode'] ?> <?php echo $operator['city'] ?></div>
     </address>
 
     <address>
-        <div>Email: <?php echo $this->person_email ?></div>
-        <div>Tel: <?php echo $this->person_phone ?></div>
-        <div>Fax: <?php echo $this->person_fax ?></div>
-        <div>Ust ID: <?php echo $this->company_fat ?></div>
+        <div>Email: <?php echo $operator['email'] ?></div>
+        <div>Tel: <?php echo $operator['phone'] ?></div>
+        <div>Fax: <?php echo $operator['fax'] ?></div>
+        <div>Ust ID: <?php echo $operator['companyTax'] ?></div>
     </address>
 </section>
 
@@ -244,15 +246,15 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
 <section class="wow bounceInUp">
     <h2>Datenschutzerklärung</h2>
     <p>
-        Betreiber der Seite ist <?php echo $this->company_fullname ?>. im folgenden <?php echo $this->company_name ?> genannt.
+        Betreiber der Seite ist <?php echo $operator['companyFullName'] ?>. im folgenden <?php echo $operator['companyShortName'] ?> genannt.
     </p>
     <p>
-        CROSS will Ihnen eine sichere und geschützte Nutzung der Webseite gewährleisten und geht deshalb
-        verantwortungsbewusst mit Ihren Daten um. Das betrifft sowohl die Erhebung als auch die Verarbeitung
+        <?php echo $operator['companyShortName'] ?> will Ihnen eine sichere und geschützte Nutzung der Webseite gewährleisten
+        und geht deshalb verantwortungsbewusst mit Ihren Daten um. Das betrifft sowohl die Erhebung als auch die Verarbeitung
         und die Nutzung. Wie wir Ihre personengebundenen Daten verwenden, die Sie hier eingeben, erfahren Sie in
         der folgenden Erklärung. Ihre Daten werden entsprechend der gesetzlichen Bestimmungen zum Datenschutz,
         insbesondere das Bundesdatenschutzgesetz (BDSG) und das Gesetz über den Datenschutz bei Telediensten
-        (TDDSG) geschützt. <?php echo $this->company_name ?> trägt keine Verantwortung für die Datenschutzrichtlinien
+        (TDDSG) geschützt. <?php echo $operator['companyShortName'] ?> trägt keine Verantwortung für die Datenschutzrichtlinien
         oder Praktiken anderer Webseiten, auf die wir Links gesetzt haben. Diese Datenschutzerklärung gilt nur
         für die Informationen, die wir über diese Website erheben. Die nachfolgenden Informationen erklären Ihnen,
         welche Daten während Ihres Besuchs auf der Homepage erfasst und wie diese genutzt werden:
@@ -261,25 +263,25 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
         <li class="wow fadeInLeft">
             <h4>Erhebung und Verarbeitung der Daten</h4>
             Informationen, die Ihr Browser uns direkt oder indirekt über Schnittstellen übermitteln, werden von
-            <?php echo $this->company_name ?> automatisch in ihren Server–Logfiles erhoben und gespeichert. Dies umfasst beispielsweise
+            <?php echo $operator['companyShortName'] ?> automatisch in ihren Server–Logfiles erhoben und gespeichert. Dies umfasst beispielsweise
             Browsertyp/ -version, verwendetes Betriebssystem, Referrer URL (die zuvor besuchte Seite), Hostname
             des zugreifenden Rechners (IP Adresse), übertragene Datenmenge, Meldung über erfolgreichen Abruf
             und Uhrzeit der Serveranfrage. Zusätzliche personenbezogene Daten werden nur dann erfasst, wenn Sie
             diese Angaben im Rahmen einer Anfrage sowie im Rahmen der Nutzer-Registrierung und der Profilerstellung
-            freiwillig bei <?php echo $this->company_name ?> machen. Die Registrierung bei <?php echo $this->company_name ?> ist ausschließlich Personen über
+            freiwillig bei <?php echo $operator['companyShortName'] ?> machen. Die Registrierung bei <?php echo $operator['companyShortName'] ?> ist ausschließlich Personen über
             16 Jahren vorbehalten. Eltern oder Aufsichtsberechtigte sind für den Schutz der Privatsphäre ihrer
             Kinder verantwortlich.
         </li>
         <li class="wow fadeInLeft">
             <h4>Nutzung und Weitergabe personenbezogener Daten</h4>
-            Personenbezogene Daten, die Sie als registrierter Nutzer <?php echo $this->company_name ?> zur Verfügung gestellt haben,
+            Personenbezogene Daten, die Sie als registrierter Nutzer <?php echo $operator['companyShortName'] ?> zur Verfügung gestellt haben,
             werden elektronisch gespeichert. Sie haben als Nutzer jederzeit die Möglichkeit, Daten entweder
             direkt aus Ihrem Profil zu löschen oder aber festzulegen, welche Nutzer Ihre Daten nicht einsehen
             dürfen. Ihre personenbezogenen Daten werden nur an Dritte weitergegeben, wenn dies dem
             Leistungszweck dient. Sie haben außerdem das Recht, die Löschung Ihrer Daten auf schriftlichem
             Wege zu veranlassen. Den Detailgrad dieser Daten bestimmen Sie selbst. Der aktuelle
             Detaillierungsgrad ist jeweils in Ihrem Profil ersehen. Die personenbezogenen Daten werden gemäß
-            den Leistungen von <?php echo $this->company_name ?> und für die technische Administration verwendet. <?php echo $this->company_name ?> gibt
+            den Leistungen von <?php echo $operator['companyShortName'] ?> und für die technische Administration verwendet. <?php echo $this->company_name ?> gibt
             keine Daten zu Werbe- oder Marketingzwecken weiter, die Rückschlüsse auf Personen erlauben. Ihre
             anonymisierten Nutzerdaten verwenden wir für Zwecke der Beratung, der Werbung, der Marktforschung
             und zur Verbesserung und bedarfsgerechten Gestaltung des Dienstes. Ein Widerruf ist schriftlich
@@ -287,7 +289,7 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
         </li>
         <li class="wow fadeInLeft">
             <h4>Verwendung von Cookies</h4>
-            <?php echo $this->company_name ?> verwendet an mehreren Stellen der Webseite so genannte Cookies. Das sind kleine
+            <?php echo $operator['companyShortName'] ?> verwendet an mehreren Stellen der Webseite so genannte Cookies. Das sind kleine
             Textdateien, die auf Ihrem Rechner abgelegt werden und die Ihr Browser speichert. Sie dienen dazu,
             unsere Webseite nutzerfreundlicher, effektiver und sicherer zu machen. Die meisten der von uns
             verwendeten Cookies sind so genannte „Session-Cookies“. Cookies richten auf Ihrem Rechner keinen
@@ -305,7 +307,7 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
             Zugriff, Veränderung oder Verbreitung Ihrer Daten durch unbefugte Personen geschützt. Der Zugang zu
             Ihrem Profil erfolgt nur über die Eingabe ihres Logins in Verbindung mit Ihrem Passwort bzw. über
             definierte Schnittstellen u.a. zu Facebook. Die Zugriffsrechte können Sie im jeweiligen Account
-            beschränken und/oder löschen. <?php echo $this->company_name ?> verschickt keine Emails mit der Aufforderung Ihr Passwort
+            beschränken und/oder löschen. <?php echo $operator['companyShortName'] ?> verschickt keine Emails mit der Aufforderung Ihr Passwort
             einzugeben. Sie sollten Ihre Zugangsdaten stets vertraulich behandeln und sich nach Abschluss Ihrer
             Session abmelden, insbesondere wenn sie an öffentlichen Computern arbeiten oder sich Ihren Rechner
             mit anderen Nutzern teilen. Trotz aller Vorkehrungen ist aus technischen Gründen eine vollständige
@@ -316,14 +318,14 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
             <h4>Auskunftsrecht</h4>
             Wir geben Ihnen jederzeit darüber Auskunft welche Daten die bezüglich Ihrer Person, deren Herkunft
             und Empfänger sowie zu welchem Zweck gespeichert sind. Dazu reicht eine schriftliche Anfrage an die
-            im <a href="<?php echo $this->basePath("/about#impressum")?>">Impressum</a> angegebene Adresse. Aus
+            im <a href="<?php echo $this->basePath("/de/content/about#impressum")?>">Impressum</a> angegebene Adresse. Aus
             Sicherheitsgründen bitten wir Sie eine Kopie des Personalausweises beizulegen.
         </li>
         <li class="wow fadeInLeft">
             <h4>Änderungen der Datenschutzerklärung</h4>
             Das Datenschutzrecht ändert sich regelmäßig. Auch neue Serviceleistungen kommen hinzu. Deshalb
-            behält sich die <?php echo $this->company_name ?> das Recht vor, diese Datenschutzerklärungen jederzeit zu ändern. Sie
-            werden als Nutzer von <?php echo $this->company_name ?> über diese Änderungen per Email informiert.
+            behält sich die <?php echo $operator['companyShortName'] ?> das Recht vor, diese Datenschutzerklärungen jederzeit zu ändern. Sie
+            werden als Nutzer von <?php echo $operator['companyShortName'] ?> über diese Änderungen per Email informiert.
         </li>
         <li class="wow fadeInLeft">
             <h4>Sicherheitshinweis</h4>
@@ -335,8 +337,8 @@ $this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'))
         <li class="wow fadeInLeft">
             <h4>Weitere Informationen</h4>
             Wenn Sie weitere Fragen haben, die diese Datenschutzerklärung beantwortet, dann wenden Sie sich
-            bitte jederzeit an die Geschäftsführung von <?php echo $this->company_name ?>, um weitere Informationen zu erhalten.
-            Die Anschrift finden Sie unter <a href="<?php echo $this->basePath("/about#impressum")?>">Impressum</a>.
+            bitte jederzeit an die Geschäftsführung von <?php echo $operator['companyShortName'] ?>, um weitere Informationen zu erhalten.
+            Die Anschrift finden Sie unter <a href="<?php echo $this->basePath("/de/content/about#impressum")?>">Impressum</a>.
         </li>
     </ol>
 </section>
