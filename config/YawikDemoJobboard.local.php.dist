@@ -5,15 +5,13 @@ if (!\YawikDemoJobboard\Module::$isLoaded) return array();
 return array(
         'view_manager' => array(
             'template_map' => array(
-                'piwik' => '%%yawik.demoskin.piwik%%'  // location of the piwik code
+             #   'piwik' => '%%yawik.demoskin.piwik%%'  // location of the piwik code
                 )
 	        ),
 	    'Auth' => array(
 	        'first_login' => array(
 	            'role' => 'user',                       // initial role, if somebody logs in
-	            'mail_subject' => 'Herzlich Willkommen beim YAWIK Jobportal',
-	            'mail_name' => 'YAWIK Jobportal',
-	            'mail_from' => 'jobportal@yawik.org',
+
 	        ),
 	        array(
                 'external_applications' => array(
@@ -21,17 +19,4 @@ return array(
                    ),
              ),
 	    ),
-        'imprint' => array(
-           'company_name' => '%%imprint_company_name%%',
-           'company_fullname' => '%%imprint_company_fullname%%',
-           'company_fat' => '%%imprint_company_fat%%',
-           'company_zip' => '%%imprint_company_zip%%',
-           'company_city' => '%%imprint_company_city%%',
-           'person_name' => '%%imprint_person_name%%',
-           'person_email' => '%%imprint_person_email%%',
-           'person_phone' => '%%imprint_person_phone%%',
-           'person_fax' => '%%imprint_person_fax%%',
-           'piwik_opt_out' => '%%piwik_opt_out%%',
-        )
-
 	);

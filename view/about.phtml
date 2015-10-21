@@ -50,10 +50,14 @@ $operator = $options->getOperator();
     #jb-carousel {
 	height: 300px;
     }
-
+    .homepage{
+        font-size: 6em;
+    }
 </style>
 <a name="about"></a>
 <section class="wow fadeIn">
+    <div class="row">
+        <div class="container">
 <h1>Über YAWIK Jobboard</h1>
 
 <p>
@@ -64,59 +68,122 @@ $operator = $options->getOperator();
     Stellenanzeigen sind top aktuell. Diese Stellenbörse nutzt YAWIK in Kombination mit dem 
     <a href="https://github.com/cbleek/YawikDemoJobboard">YawikDemoJobboard</a> Modul.
 </p>
-
+</div>
+    </div>
 </section>
 <a name="stellenanzeige-schalten"></a>
 
 <section class="wow fadeIn">
-<h2>Stellenanzeigen schalten und Bewerber verwalten</h2>
-<p>
-    Sie können kostenlos Stellenanzeigen eingeben. Eingegegebene Stellenanzeigen können auf
-    verschiedenen Kanälen veröffentlichet werden. Aktuell:
-</p>
 <div class="row">
     <div class="container">
-        <div class="col-md-4">
-            <div class="wow slideInLeft fadeIn panel panel-info" data-wow-duration="0.5s" data-wow-delay="0s">
+        <h2>Stellenanzeigen schalten und Bewerber verwalten</h2>
+        <p>
+            Sie können kostenlos Stellenanzeigen eingeben. Eingegebene Stellenanzeigen können Sie zeitlich unbegrenzt
+            auf Ihrer Homepage veröffentlichen. Sie könnnen auch jederzeit per Multiposting weitere Stellenmärkte für
+            die Veröffentlichung Ihrer Stellenanzeige hinzubuchen.
+        </p>
+        <p>
+            Unabhägig von gebuchten Stellenportalen können Sie eingehende Bewerbungen im integrierten Bewerbermanagement
+            verwalten. Die Funktionsweise des Bewerbermanagement können Sie sich vorab in einem
+            <a href="https://yawik.org/demo/">Demo</a> ansehen. Die Nutzungdes Bewerbermanagements ist kostenlos.
+        </p>
+    </div>
+
+    <div class="container">
+        <div class="col-md-3">
+            <div class="wow fadeInRight panel panel-info" data-wow-duration="0.5s" data-wow-delay="0s">
                 <div class="panel-heading">
-                    <h3 class="panel-title">YAWIK Jobportal</h3>
+                    <h3 class="panel-title">FAZjob.NET</h3>
                 </div>
                 <div class="panel-body">
-                    Ihre Stellenanzeige erscheint unter:
-                    http://jobs.yawik.org.
-                    kostenlos, 30 tage.
+                <div class="media">
+                    <div class="media-body">
+                        <p><img src="<?php echo $this->basePath("/YawikDemoJobboard/images/logos/fazjob_net.png")?>" alt="FAZjob.NET">
+                        </p>
+                        Schalten Sie Ihre Stellenanzeige auf FAZjob.NET, dem Karriereportal für Fach- und Führungskrafte
+                        des renommierten F.A.Z.-Stellenmarktes.
+
+                    </div>
+                    <a class="media-left" href="http://fazjob.net/" target="_blank">
+                    </a>
+                </div>
+                </div>
+                <div class="panel-footer">
+                    Dauer: 30 Tage, Preis: <span class="label label-default">999,- €</span>
                 </div>
             </div>
         </div>
-        <div class="col-md-4" data-test="fadeInDown">
-            <div class="wow fadeIn panel panel-info">
+        <div class="col-md-3" data-test="fadeInDown">
+            <div class="wow fadeInLeft panel panel-info">
                 <div class="panel-heading">
                     <h3 class="panel-title">Jobsintown.de</h3>
                 </div>
                 <div class="panel-body">
-                    Ihre Stellenanzeige erscheint im Karriere Netzwerk
-                    von Jobsintown.
-                    Preis: 199,-€, Schaltungsdauer: 30 Tage
+                    <div class="media">
+                        <div class="media-body">
+                            <p><img src="<?php echo $this->basePath("/YawikDemoJobboard/images/logos/jobsintown.png")?>" alt="jobsintown.de"></p>
+
+                            Schalten Sie Ihre Stellenanzeige auf Jobsintown und dem angeschlossenen Karrierenetzwerk<br><br><br><br>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    Dauer: 30 Tage, Preis: <span class="label label-default">699,- €</span>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="panel panel-info wow slideInRight" data-wow-duration="0.5s" data-wow-delay="0s">
+        <div class="col-md-3">
+            <div class="panel panel-info wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0s">
+                <div class="panel-heading">
+                    <h3 class="panel-title">YAWIK Jobboard</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-body">
+                            <h4 class="media-heading">YAWIK Jobboard</h4>
+                            Schalten Sie Ihre Stellenanzeige auf diesem Jobportal und unterstützen Sie damit das Projekt
+                            <a href="http://yawik.org">YAWIK</a><br><br>
+                        </div>
+                        <a class="media-right" href="http://jobs.yawik.org/" target="_blank">
+                            <img src="<?php echo $this->basePath("/Jobs/images/yawik-small.jpg")?>" alt="jobsintown.de">
+                        </a>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                Dauer: 30 Tage, Preis <span class="label label-default">199,- €</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-info wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0s">
                 <div class="panel-heading">
                     <h3 class="panel-title">Ihre Homepage</h3>
                 </div>
                 <div class="panel-body">
-                    Coming soon
-                    <p>
-                        Einfach ein Javascript in die eigene Homepage einbauen.
-                    </p>
+                    <div class="media">
+                        <div class="media-body">
+
+                            Integrieren Sie die hier eingegebenen Jobs in Ihrer Homepage und nutzen Sie das
+                            Bewerbermanagement für eingehende Bewerbungen.<br><br>
+
+                        </div>
+                        <a class="media-right" href="http://jobs.yawik.org/" target="_blank">
+                            <i class="homepage fa fa-home"></i>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    Dauer: unbegrenzt, <span class="label label-default">kostenlos</span>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 </section>
+
+
 
 <a name="funktionsweise"></a>
 <section>
