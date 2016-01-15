@@ -27,7 +27,6 @@ return array(
             'content/about'       => __DIR__ . '/../view/about.phtml',
             'content/applications-privacy-policy' => __DIR__ . '/../view/disclaimer.phtml',
             'main-navigation'      => __DIR__ . '/../view/main-navigation.phtml',
-            'jobs/form/list-filter' => __DIR__ . '/../view/search-for-jobs.phtml',
             'templates/default/index' => __DIR__ . '/../view/templates/default/index.phtml',
             'content/jobs-terms-and-conditions' => __DIR__ . '/../view/agb.phtml',
         ),
