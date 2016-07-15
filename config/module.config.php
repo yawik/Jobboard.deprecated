@@ -9,14 +9,7 @@
 return array(
     'service_manager' => array(
         'factories' => array(
-            'YawikDemoJobboard/Listener/DelayedUserRegistrationMailSender'
-            => 'YawikDemoJobboard\Factory\Listener\DelayedUserRegistrationMailSenderFactory',
-        ),
-    ),
-
-    'controllers' => array(
-        'invokables' => array(
-            'Jobs/Manage' => 'YawikDemoJobboard\Controller\JobsManageController',
+            'YawikDemoJobboard/Listener/DelayedUserRegistrationMailSender' => 'YawikDemoJobboard\Factory\Listener\DelayedUserRegistrationMailSenderFactory',
         ),
     ),
 
