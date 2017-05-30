@@ -27,7 +27,7 @@ $this->configHeadScript()->appendScript('var lang="' . $lang . '";'
 $this->headLink()->prependStylesheet($this->basePath('/assets/pnotify/pnotify.custom.min.css'));
 $this->headLink()->prependStylesheet($this->basePath('/YawikDemoJobboard/animate.min.css'));
 $this->headLink()->prependStylesheet($this->basePath('/YawikDemoJobboard/YawikDemoJobboard.css'));
-
+$this->headLink()->appendStylesheet($this->basePath('/assets/select2/css/select2.css'));
 ?>
 <?php echo $this->doctype(); ?>
 <html lang="<?php echo $this->params('lang')?>">
