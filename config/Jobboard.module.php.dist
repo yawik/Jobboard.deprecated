@@ -20,10 +20,10 @@ if ((!array_key_exists('APPLICATION_HOST', $_SERVER) || $_SERVER['APPLICATION_HO
 }
 
 
-return array("YawikDemoJobboard");
+return array("Jobboard");
 
 /*
-* if you want users to register with a complete Address you might use "YawikCompanyRegistration"
+* if you want users to register with a complete Address you might use "CompanyRegistration"
 *
-* return array("YawikCompanyRegistration","YawikDemoJobboard");
+* return array("CompanyRegistration","Jobboard");
 */

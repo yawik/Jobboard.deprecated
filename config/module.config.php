@@ -1,15 +1,15 @@
 <?php
 
 /**
- * create a config/autoload/YawikDemoJobboard.local.php and put modifications there.
+ * create a config/autoload/Jobboard.local.php and put modifications there.
  */
 
-\YawikDemoJobboard\Module::$isLoaded = true;
+\Jobboard\Module::$isLoaded = true;
 
 return array(
     'service_manager' => array(
         'factories' => array(
-            'YawikDemoJobboard/Listener/DelayedUserRegistrationMailSender' => 'YawikDemoJobboard\Factory\Listener\DelayedUserRegistrationMailSenderFactory',
+            'Jobboard/Listener/DelayedUserRegistrationMailSender' => 'Jobboard\Factory\Listener\DelayedUserRegistrationMailSenderFactory',
         ),
     ),
 

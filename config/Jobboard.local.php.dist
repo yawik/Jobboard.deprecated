@@ -1,6 +1,6 @@
 <?php
 
-if (!\YawikDemoJobboard\Module::$isLoaded) return array();
+if (!\Jobboard\Module::$isLoaded) return array();
 
 return array(
         'view_manager' => array(

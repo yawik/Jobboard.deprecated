@@ -1,6 +1,6 @@
 <?php
 
-namespace YawikDemoJobboard;
+namespace Jobboard;
 
 /**
  * Bootstrap class of the YAWIK Jobboard
