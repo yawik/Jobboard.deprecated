@@ -10,8 +10,15 @@ return array(
     'service_manager' => array(
         'factories' => array(
             'Jobboard/Listener/DelayedUserRegistrationMailSender' => 'Jobboard\Factory\Listener\DelayedUserRegistrationMailSenderFactory',
+            \Jobboard\Listener\JobImportListener::class => \Jobboard\Factory\Listener\JobImportListenerFactory::class,
         ),
     ),
+
+    'event_manager' => [
+        'Jobs/Events' => [ 'listeners' => [
+            \stdClass::class => [ \Jobs\Listener\Events\JobEvent::EVENT_IMPORT_DATA, /* lazy */ true ],
+        ]],
+    ],
 
     'view_manager' => array(
         'template_map' => array(
@@ -65,4 +72,10 @@ return array(
             ),
         ),
     ),
+
+    'options' => [
+        \Jobboard\Options\JobImportListenerOptions::class => [
+
+        ],
+    ]
 );
