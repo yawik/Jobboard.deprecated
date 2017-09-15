@@ -178,6 +178,7 @@ class JobImportListener
         $job = $event->getJobEntity();
         $jobClassifications = $job->getClassifications();
         $strategy = new TreeSelectStrategy();
+        $strategy->setShouldCreateLeafs(true);
 
         $positions = $event->getParam('position');
 

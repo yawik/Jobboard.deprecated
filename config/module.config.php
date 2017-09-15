@@ -16,7 +16,7 @@ return array(
 
     'event_manager' => [
         'Jobs/Events' => [ 'listeners' => [
-            \stdClass::class => [ \Jobs\Listener\Events\JobEvent::EVENT_IMPORT_DATA, /* lazy */ true ],
+            \Jobboard\Listener\JobImportListener::class => [ \Jobs\Listener\Events\JobEvent::EVENT_IMPORT_DATA, /* lazy */ true ],
         ]],
     ],
 
