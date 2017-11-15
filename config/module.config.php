@@ -23,6 +23,8 @@ return array(
             'templates/default/index' => __DIR__ . '/../view/templates/default/index.phtml',
             'content/jobs-terms-and-conditions' => __DIR__ . '/../view/agb.phtml',
             'main-navigation'      => __DIR__ . '/../view/main-navigation.phtml',
+            'jobs/jobboard/index.ajax.phtml' => __DIR__ . '/../view/jobs/index.ajax.phtml',
+            'jobs/jobboard/index' => __DIR__ . '/../view/jobs/index.phtml',
         ),
     ),
     'translator'   => array(

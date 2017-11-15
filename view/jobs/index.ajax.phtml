@@ -1,0 +1,152 @@
+<?php
+/**
+ * YAWIK
+ *
+ * @filesource
+ * @copyright (c) 2013 - 2016 Cross Solution (http://cross-solution.de)
+ * @license   MIT
+ */
+if (count($jobs)): // We only want to render something, if there are items.
+?><div class="hidden" id="update-job-count"><?=$this->jobs->getTotalItemCount()?></div><?php
+$hasFacets = $jobs instanceof \Solr\FacetsProviderInterface;
+?>
+<div class="row">
+    <div class="col-md-12">
+        <p style="padding-right: 10px;" class="pull-left lead"><?=$this->translate('Similar jobs in your inbox daily:')?></p>
+        <?=$this->proxy('jobsByMailSubscriptionForm')->render($jobs)?>
+    </div>
+</div>
+
+    <div class="row">
+
+<?php if (true || $hasFacets):?>
+    <?php
+    $facets = $jobs->getFacets();
+    $activeFacets = $facets->getActiveValues();
+    ?>
+
+    <?php if ($activeFacets):?>
+        <div class="well well-sm">
+            <?=$this->translate('Active filters:')?>
+            <?php foreach ($activeFacets as $facetName => $facetValues):?>
+                <?php foreach ($facetValues as $facetValue):?>
+                    <button type="button" class="btn btn-default btn-sm facet-active"
+                            data-name="<?=$this->escapeHtmlAttr($facetName)?>[<?=$this->escapeHtmlAttr($facetValue)?>]"
+                            title="<?=$this->translate('Remove filter')?>"><?=$facetValue?> <span>&times;</span></button>
+                <?php endforeach;?>
+            <?php endforeach;?>
+            <button type="button" class="btn btn-link facet-reset"><?=$this->translate('Remove all filters')?></button>
+        </div>
+    <?php endif;?>
+
+    <div class="col-md-3">
+        <?php foreach ($facets as $facetName => $facetValues):?>
+            <?php if(count($facetValues)>0): ?>
+            <div class="panel panel-default">
+                <div class="panel-heading"><?=$this->translate($facets->getTitle($facetName))?></div>
+                <div class="panel-body">
+                    <?php foreach ($facetValues as $facetValue => $facetValueCount):?>
+                        <div>
+                            <label>
+                                <input type="checkbox" name="<?=$this->escapeHtmlAttr($facetName)?>[<?=$this->escapeHtmlAttr($facetValue)?>]"
+                                       class="facet-checkbox"<?=$facets->isValueActive($facetName, $facetValue)?" checked":""?>>
+                                <?=$facetValue?> (<?=$facetValueCount?>)
+                            </label>
+                        </div>
+                    <?php endforeach;?>
+                </div>
+            </div>
+            <?php endif; ?>
+        <?php endforeach;?>
+    </div>
+    <div class="col-md-9">
+<?php endif;?>
+
+
+
+<script src="<?=$this->basepath('Jobboard/jquery.matchHeight.js')?>" type="text/javascript"></script>
+<script type="text/javascript">
+   $(function() {
+    $('.featured-image-box').matchHeight({
+        byRow: true,
+        property: 'height',
+        target: null,
+        remove: false
+    });
+});
+</script>
+
+
+    <div class="row-eq-height">
+    <?php foreach ($jobs as $job): /* @var \Jobs\Entity\Job $job */ ?>
+    <?php
+
+    $org = $job->getOrganization();
+    $href = $job->getLink() ? $job->getLink() : $this->url('lang/jobs/view', [], ['query' => ['id' => $job->getId()]], true);
+
+    ?>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="featured-image-box">
+            <div class="img-box">
+                <a href="<?=$href?>">
+                <?php
+                $logo = $job->getSolrValue('companyLogo');
+               
+                if (preg_match("/^(https?:)?\/\//",$logo)) { 
+                    echo '<img class="yk-logo-sm center-block" src="' . $logo .'">';
+		        } elseif ($org && $org->getImage() &&  $org->getOrganizationName()) {
+                    echo '<img class="yk-logo-sm center-block" src="';
+		            echo $this->basePath($this->organizationImageCache->getUri($job->getOrganization()->getImage(true))) . '">';
+                } 
+                ?>
+                </a>
+            </div>
+            <div class="content-area">
+                <div class="top-cnt">
+                    <p class="date">
+                        <?php
+                        if ($job->getDatePublishStart()): echo $this->dateFormat($job->getDatePublishStart(), 'short', 'none');
+                        elseif ($job->getDateCreated()): echo $this->dateFormat($job->getDateCreated(), 'short', 'none');
+                        endif?>
+                    </p>
+                    <h4>
+                        <a title="<?=strip_tags($job->getTitle())?>"
+                           href="<?=$href?>">
+                            <?=strip_tags($job->getTitle())?>
+                        </a>
+                    </h4>
+                    <?php
+                    if ($job->getCompany()) {
+			            echo $job->getCompany();
+                    } elseif ($org && $org->getOrganizationName() && $org->getOrganizationName()->getName()) {
+                        echo $org->getOrganizationName()->getName();
+                    }
+                    ?>
+                    <p>
+                        <?php $typeOfContract = $job->getTemplateValues()->get('types')?:'fulltime' ?>
+                        <span class="yk-contract yk-<?=$typeOfContract?>"><?=$typeOfContract; ?></span>
+                    </p>
+                    <p><?=$job->getLocation()?></p>
+                </div>
+            </div>
+            <div class="apply">
+                <?=$this->applyUrl($job);?>
+            </div>
+        </div>
+    </div>
+    
+    <?php endforeach?>
+
+    <div class="clear"></div>
+    <?= $this->paginationControl($jobs, 'Sliding', 'pagination-control',
+                                 [
+                                     'lang' => $this->params('lang'),
+                                     'route' => 'lang/jobboard'
+                                 ]);
+    ?>
+    </div>
+        </div>
+
+        <?=$hasFacets ? '</div>' : '' ?>
+<?php endif ?>
+

@@ -13349,24 +13349,6 @@ fieldset[disabled] #yk-topbar .btn-link:focus {
 main {
   margin-bottom: 49px;
 }
-h1 {
-  font-size: 26px;
-}
-h2 {
-  font-size: 24px;
-}
-h3 {
-  font-size: 22px;
-}
-h4 {
-  font-size: 20px;
-}
-h5 {
-  font-size: 18px;
-}
-h6 {
-  font-size: 16px;
-}
 /*
  * Scrollable modal
  */
@@ -14017,6 +13999,23 @@ main {
 }
 .nav {
   margin-bottom: -2px;
+}
+.featured-image-box {
+  border: 1px solid #ccc;
+  margin-bottom: 30px;
+  position: relative;
+}
+.featured-image-box .content-area {
+  background-color: #ffffff;
+  padding: 30px 20px;
+}
+.apply {
+  bottom: 0;
+  text-align: center;
+  background: #ddd;
+  line-height: 2em;
+  position: absolute;
+  width: 100%;
 }
 /**
 * removes the gradients from carousel control
