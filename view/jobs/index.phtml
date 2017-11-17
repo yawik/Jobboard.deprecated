@@ -73,17 +73,16 @@ $this->headScript()->captureStart();
                     endforeach;
                 endif;
             endforeach;
-
-            //$this->filterForm->add( ['type' => 'hidden', 'name' => 'clear', 'attributes' => ['value' => 1]]);
-            $this->filterForm->setAttribute('data-handle-by', 'native');
-            $this->filterForm->setAttribute('action', $this->url('lang/jobboard', [], true));
              echo $this->searchForm($this->filterForm)  ?>
     </div>
 </nav>
 
 
 <ul id="search-tabs" class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#jobs-list-container"><span id="job-count"><?=$this->jobs->getTotalItemCount()?></span> Jobs gefunden</a></li>
+    <li class="active"><a data-toggle="tab" href="#jobs-list-container">
+            <?=sprintf($this->translate('Found %s jobs', \Jobboard\Module::TEXT_DOMAIN),
+                       '<span id="job-count">' . $this->jobs->getTotalItemCount() . '</span>'
+            )?></a></li>
     <?php if ($description): ?><li><a data-toggle="tab" href="#wp-content">Beschreibung</a></li><?php endif ?>
 </ul>
 
