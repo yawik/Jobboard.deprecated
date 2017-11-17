@@ -37,9 +37,10 @@ return array(
     'translator'   => array(
         'translation_file_patterns' => array(
             array(
-                'type'     => 'gettext',
+                'type'     => 'phparray',
                 'base_dir' => __DIR__ . '/../language',
-                'pattern'  => '%s.mo',
+                'pattern'  => '%s.php',
+                'text_domain' => \Jobboard\Module::TEXT_DOMAIN,
             ),
         ),
     ),
