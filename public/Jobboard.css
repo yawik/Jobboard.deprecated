@@ -14009,6 +14009,10 @@ main {
   background-color: #ffffff;
   padding: 30px 20px;
 }
+.featured-image-box .yk-logo-sm {
+  max-width: 150px;
+  max-height: 55px;
+}
 .apply {
   bottom: 0;
   text-align: center;
