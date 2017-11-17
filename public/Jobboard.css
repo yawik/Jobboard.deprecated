@@ -14012,6 +14012,8 @@ main {
 .featured-image-box .yk-logo-sm {
   max-width: 150px;
   max-height: 55px;
+  float: none;
+  margin: auto;
 }
 .apply {
   bottom: 0;
@@ -14020,6 +14022,9 @@ main {
   line-height: 2em;
   position: absolute;
   width: 100%;
+}
+#job-by-mail-subscribe-modal .modal {
+  z-index: 1041;
 }
 /**
 * removes the gradients from carousel control
