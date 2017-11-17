@@ -40,7 +40,8 @@ class JobImportListenerFactory implements FactoryInterface
             'employmentTypes' => $employmentTypes,
             'employmentTypesFilter' => $etFilter,
             'industries' => $industries,
-            'industriesFilter' => $inFilter
+            'industriesFilter' => $inFilter,
+            'repositories' => $repositories,
         ]);
 
         return $listener;

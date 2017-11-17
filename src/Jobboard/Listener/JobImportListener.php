@@ -53,6 +53,8 @@ class JobImportListener
      */
     private $industriesFilter;
 
+    private $repositories;
+
 
 
     public function __construct(array $options = null)
@@ -74,6 +76,32 @@ class JobImportListener
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getRepositories()
+    {
+        if (!$this->repositories) {
+            throw new MissingDependencyException('repositories', $this);
+        }
+
+        return $this->repositories;
+    }
+
+    /**
+     * @param mixed $repositories
+     *
+     * @return self
+     */
+    public function setRepositories($repositories)
+    {
+        $this->repositories = $repositories;
+
+        return $this;
+    }
+
+
 
     /**
      * @return NodeInterface
@@ -177,26 +205,34 @@ class JobImportListener
     {
         $job = $event->getJobEntity();
         $jobClassifications = $job->getClassifications();
+        $repositories = $this->getRepositories();
         $strategy = new TreeSelectStrategy();
         $strategy->setShouldCreateLeafs(true);
 
         $positions = $event->getParam('position');
 
         if ($positions) {
+            $employmentTypes = $this->getEmploymentTypes();
 
             $strategy->setAllowSelectMultipleItems(false)
                      ->setAttachedLeafs($jobClassifications->getEmploymentTypes())
-                     ->setTreeRoot($this->getEmploymentTypes())
+                     ->setTreeRoot($employmentTypes)
                      ->hydrate($this->getEmploymentTypesFilter()->filter($positions));
+
+            $repositories->persist($employmentTypes);
         }
 
         $branches = $event->getParam('branches');
 
         if ($branches) {
+            $industries = $this->getIndustries();
+
             $strategy->setAllowSelectMultipleItems(true)
                      ->setAttachedLeafs($jobClassifications->getIndustries())
                      ->setTreeRoot($this->getIndustries())
                      ->hydrate($this->getIndustriesFilter()->filter($branches));
+
+            $repositories->persist($industries);
         }
     }
 }
