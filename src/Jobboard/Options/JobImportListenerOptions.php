@@ -25,14 +25,14 @@ class JobImportListenerOptions extends AbstractOptions
      *
      * @var array
      */
-    private $employmentTypesMap;
+    private $employmentTypesMap = [];
 
     /**
      *
      *
      * @var array
      */
-    private $industriesMap;
+    private $industriesMap = [];
 
     /**
      * @return array
