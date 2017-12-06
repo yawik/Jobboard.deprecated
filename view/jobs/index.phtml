@@ -2,7 +2,9 @@
 <?php
 $this->headScript()->appendFile($this->basepath('/Core/js/core.pagination-container.js'))
      ->appendFile($this->basePath('Core/js/core.forms.js'))
-     ->appendFile($this->basePath('assets/select2/js/select2.min.js'));
+     ->appendFile($this->basePath('assets/select2/js/select2.min.js'))
+    ->appendFile($this->basePath('Jobboard/jquery.matchHeight.js'))
+    ->appendFile($this->basePath('Jobboard/jobboard.js'));
 if ($this->params('lang') != 'en') {
     $this->headScript()->appendFile($this->basePath('assets/select2/js/i18n/' . $this->params('lang') . '.js'));
 }

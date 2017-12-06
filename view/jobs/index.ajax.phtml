@@ -64,20 +64,7 @@ $hasFacets = $jobs instanceof \Solr\FacetsProviderInterface;
 
 
 
-<script src="<?=$this->basepath('Jobboard/jquery.matchHeight.js')?>" type="text/javascript"></script>
-<script type="text/javascript">
-   $(function() {
-    $('.featured-image-box').matchHeight({
-        byRow: true,
-        property: 'height',
-        target: null,
-        remove: false
-    });
-});
-</script>
-
-
-    <div class="row-eq-height">
+   <div class="row-eq-height">
     <?php foreach ($jobs as $job): /* @var \Jobs\Entity\Job $job */ ?>
     <?php
 
