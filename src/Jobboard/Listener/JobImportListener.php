@@ -207,15 +207,16 @@ class JobImportListener
         $jobClassifications = $job->getClassifications();
         $repositories = $this->getRepositories();
         $strategy = new TreeSelectStrategy();
-        $strategy->setShouldCreateLeafs(true);
+        $strategy->setShouldCreateLeafs(true)
+                 ->setShouldUseNames(true)
+                 ->setAllowSelectMultipleItems(true);
 
         $positions = $event->getParam('position');
 
         if ($positions) {
             $employmentTypes = $this->getEmploymentTypes();
 
-            $strategy->setAllowSelectMultipleItems(false)
-                     ->setAttachedLeafs($jobClassifications->getEmploymentTypes())
+            $strategy->setAttachedLeafs($jobClassifications->getEmploymentTypes())
                      ->setTreeRoot($employmentTypes)
                      ->hydrate($this->getEmploymentTypesFilter()->filter($positions));
 
@@ -227,8 +228,7 @@ class JobImportListener
         if ($branches) {
             $industries = $this->getIndustries();
 
-            $strategy->setAllowSelectMultipleItems(true)
-                     ->setAttachedLeafs($jobClassifications->getIndustries())
+            $strategy->setAttachedLeafs($jobClassifications->getIndustries())
                      ->setTreeRoot($this->getIndustries())
                      ->hydrate($this->getIndustriesFilter()->filter($branches));
 

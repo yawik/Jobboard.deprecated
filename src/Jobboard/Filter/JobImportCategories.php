@@ -10,6 +10,7 @@
 /** */
 namespace Jobboard\Filter;
 
+use Core\Entity\Tree\Node;
 use Zend\Filter\Exception;
 use Zend\Filter\FilterInterface;
 
@@ -33,7 +34,8 @@ class JobImportCategories implements FilterInterface
         $return = [];
 
         foreach ($value as $key) {
-            $return[] = isset($this->map[$key]) ? $this->map[$key] : $value;
+            $mapped   = isset($this->map[$key]) ? $this->map[$key] : $key;
+            $return[] = $mapped;
         }
 
         return $return;
