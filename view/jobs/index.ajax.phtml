@@ -113,7 +113,7 @@ $hasFacets = $jobs instanceof \Solr\FacetsProviderInterface;
                         <?php $typeOfContract = $job->getTemplateValues()->get('types')?:'fulltime' ?>
                         <span class="yk-contract yk-<?=$typeOfContract?>"><?=$typeOfContract; ?></span>
                     </p>
-                    <p><?=$job->getLocation()?></p>
+                    <p><?=prettyLocation($job->getLocation())?></p>
                 </div>
             </div>
             <div class="apply">
@@ -137,3 +137,26 @@ $hasFacets = $jobs instanceof \Solr\FacetsProviderInterface;
         <?=$hasFacets ? '</div>' : '' ?>
 <?php endif ?>
 
+<?php
+function prettyLocation($string) {
+    $locations = explode("|", $string);
+    foreach($locations as $location) {
+        $l = [];
+        if (preg_match("~([0-9]{5})\s([^,]+),\s+([^,]+)?,\s+([A-Z]+)?~", $location, $match)){
+            $l['zip'][] = $match[1];
+            $l['city'][] = $match[2];
+            $l['region'][] = $match[3];
+        }
+    }
+
+    if (count($locations) == 1 && isset($l['zip']) && isset($l['city'] )) {
+       $return = $l['zip'][0] . ' ' . $l['city'][0] . ', ' . $l['region'][0];
+    } elseif (count($locations) > 1 &&  count($locations) <=3 && isset($l['city']) ) {
+        $return = implode(", ", array_unique($l['city']));
+    } elseif (count($locations)>3 && isset($l['region'] )) {
+       $return = implode(", ", array_unique($l['region']));
+    } else {
+       $return = $string;
+    }
+    return ($return);
+}
