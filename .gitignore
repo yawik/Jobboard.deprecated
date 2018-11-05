@@ -1,3 +1,7 @@
 *~
 view/.*
 config/build.properties
+test/build
+/vendor/
+components
+composer.lock

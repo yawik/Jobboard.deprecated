@@ -11,7 +11,7 @@
 
 $this->headTitle('Über YAWIK Jobboard');
 $this->headscript()->appendScript('$(".alert").alert();');
-$this->headScript()->appendFile($this->basepath('YawikDemoJobboard/wow.min.js'));
+$this->headScript()->appendFile($this->basepath('modules/YawikDemoJobboard/lib/wow.min.js'));
 
 /* @var $options \Core\Options\ModuleOptions */
 $options = $this->services('Core/Options');
@@ -98,7 +98,7 @@ $operator = $options->getOperator();
                 <div class="panel-body">
                 <div class="media">
                     <div class="media-body">
-                        <p><img src="<?php echo $this->basePath("/YawikDemoJobboard/images/logos/fazjob_net.png")?>" alt="FAZjob.NET">
+                        <p><img src="<?php echo $this->basePath("/modules/YawikDemoJobboard/images/logos/fazjob_net.png")?>" alt="FAZjob.NET">
                         </p>
                         Schalten Sie Ihre Stellenanzeige auf FAZjob.NET, dem Karriereportal für Fach- und Führungskrafte
                         des renommierten F.A.Z.-Stellenmarktes.
@@ -121,7 +121,7 @@ $operator = $options->getOperator();
                 <div class="panel-body">
                     <div class="media">
                         <div class="media-body">
-                            <p><img src="<?php echo $this->basePath("/YawikDemoJobboard/images/logos/jobsintown.png")?>" alt="jobsintown.de"></p>
+                            <p><img src="<?php echo $this->basePath("/modules/YawikDemoJobboard/images/logos/jobsintown.png")?>" alt="jobsintown.de"></p>
 
                             Schalten Sie Ihre Stellenanzeige auf Jobsintown und dem angeschlossenen Karrierenetzwerk<br><br><br><br>
                         </div>
@@ -146,7 +146,7 @@ $operator = $options->getOperator();
                             <a href="http://yawik.org">YAWIK</a><br><br>
                         </div>
                         <a class="media-right" href="http://jobs.yawik.org/" target="_blank">
-                            <img src="<?php echo $this->basePath("/Jobs/images/yawik-small.jpg")?>" alt="jobsintown.de">
+                            <img src="<?php echo $this->basePath("/modules/Jobs/images/yawik-small.jpg")?>" alt="jobsintown.de">
                         </a>
                     </div>
                 </div>
@@ -200,7 +200,7 @@ $operator = $options->getOperator();
         <div class="item active">
             <div class="media">
                 <a class="media-left" href="#">
-                    <img src="<?php echo $this->basePath("/YawikDemoJobboard/images/login.png")?>" alt="Social Login">
+                    <img src="<?php echo $this->basePath("/modules/YawikDemoJobboard/images/login.png")?>" alt="Social Login">
                 </a>
                 <div class="media-body">
                     <h3 class="media-heading">Kostenlos registrieren.</h3>
@@ -217,7 +217,7 @@ $operator = $options->getOperator();
 	<div class="item">
             <div class="media">
                 <a class="media-left" href="#">
-                    <img src="<?php echo $this->basePath("/YawikDemoJobboard/images/baseform.png")?>" alt="Eingabe der Basisdaten">
+                    <img src="<?php echo $this->basePath("/modules/YawikDemoJobboard/images/baseform.png")?>" alt="Eingabe der Basisdaten">
                 </a>
                 <div class="media-body">
                     <h3 class="media-heading">Eingabe der Grunddaten</h3>
@@ -235,7 +235,7 @@ $operator = $options->getOperator();
             <div class="item active">
                 <div class="media">
                     <a class="media-left" href="#">
-                        <img src="<?php echo $this->basePath("/YawikDemoJobboard/images/multiposting.png")?>" alt="Multiposting">
+                        <img src="<?php echo $this->basePath("/modules/YawikDemoJobboard/images/multiposting.png")?>" alt="Multiposting">
                     </a>
                     <div class="media-body">
                         <h3 class="media-heading">Es folgt die Bearbeitung der Anzeige</h3>
