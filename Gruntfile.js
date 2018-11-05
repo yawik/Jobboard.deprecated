@@ -5,6 +5,6 @@ module.exports = function(grunt) {
         nodeModulesPath: __dirname + "/node_modules"
     });
 
-    grunt.loadTasks('./test/sandbox/public/modules/YawikDemoJobboard');
-    grunt.registerTask('default',['yawik:demo-jobboard']);
+    grunt.loadTasks('./test/sandbox/public/modules/Jobboard');
+    grunt.registerTask('default',['yawik:demoJobboard']);
 };
