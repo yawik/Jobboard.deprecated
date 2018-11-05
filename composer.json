@@ -64,7 +64,7 @@
             "dev-develop": "0.32-dev"
         },
         "zf": {
-            "module": "YawikDemoJobboard"
+            "module": "Jobboard"
         }
     }
 }
