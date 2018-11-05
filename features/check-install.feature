@@ -2,7 +2,7 @@ Feature: Application installed
 
   Scenario: Check installation
     Given I am on the homepage
-    Then I should see "Public Job Opportunities"
+    Then I should see "Aktuelle Stellenanzeigen"
     Given there is a user "test@example.com" identified by "test"
     When I want to log in
     And I specify the username as "test@example.com"
