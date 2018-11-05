@@ -1,14 +1,12 @@
 <?php //description: Renders the list of public jobs. ?>
 <?php
-$this->headScript()->appendFile($this->basepath('/Core/js/core.pagination-container.js'))
-     ->appendFile($this->basePath('Core/js/core.forms.js'))
-     ->appendFile($this->basePath('assets/select2/js/select2.min.js'))
-    ->appendFile($this->basePath('Jobboard/jquery.matchHeight.js'))
-    ->appendFile($this->basePath('Jobboard/jobboard.js'));
+$this->headScript()->appendFile($this->basepath('/modules/Core/js/core.pagination-container.js'))
+     ->appendFile($this->basePath('/modules/Core/js/core.forms.js'))
+    ->appendFile($this->basePath('modules/Jobboard/js/jquery.matchHeight.js'))
+    ->appendFile($this->basePath('modules/Jobboard/js/jobboard.js'));
 if ($this->params('lang') != 'en') {
-    $this->headScript()->appendFile($this->basePath('assets/select2/js/i18n/' . $this->params('lang') . '.js'));
+    $this->headScript()->appendFile($this->basePath('dist/locales/' . $this->params('lang') . '.js'));
 }
-$this->headLink()->appendStylesheet($this->basePath('assets/select2/css/select2.css'))
 ?>
 <?php
 
@@ -54,7 +52,7 @@ $this->headScript()->captureStart();
 })(jQuery);
 <?php $this->headScript()->captureEnd();?>
 
-<?php if ($jobs instanceof \Solr\FacetsProviderInterface): $this->headScript()->appendFile($this->basePath('Jobboard/jobs.facets.js')); endif; ?>
+<?php if ($jobs instanceof \Solr\FacetsProviderInterface): $this->headScript()->appendFile($this->basePath('modules/Jobboard/jobs.facets.js')); endif; ?>
 
 <h1 class="text-center">
 
@@ -67,15 +65,18 @@ $this->headScript()->captureStart();
     <div class="search-form-container">
         <?php
             $queryParams = $this->params()->fromQuery();
-            foreach (array_keys($this->jobs->getFacets()->toArray()) as $facetName):
-                if (isset($queryParams[$facetName])):
-                    foreach (array_keys($queryParams[$facetName]) as $facetValue):
-                        $this->filterForm->add(['type' => 'hidden', 'name' => $facetName . '[' . $facetValue . ']',
-                                                'attributes' => ['class' => 'facet-param', 'value' => 1]]);
-                    endforeach;
-                endif;
-            endforeach;
-             echo $this->searchForm($this->filterForm)  ?>
+            if($jobs instanceof \Solr\FacetsProviderInterface){
+                foreach (array_keys($this->jobs->getFacets()->toArray()) as $facetName):
+                    if (isset($queryParams[$facetName])):
+                        foreach (array_keys($queryParams[$facetName]) as $facetValue):
+                            $this->filterForm->add(['type' => 'hidden', 'name' => $facetName . '[' . $facetValue . ']',
+                                'attributes' => ['class' => 'facet-param', 'value' => 1]]);
+                        endforeach;
+                    endif;
+                endforeach;
+            }
+            echo $this->searchForm($this->filterForm)
+        ?>
     </div>
 </nav>
 

@@ -11,7 +11,7 @@ return [
         'Settings',
         'Organizations',
         'Geo',
-        'YawikDemoJobboard',
+        'Jobboard',
     ]),
     'module_listener_options' => [
         'module_paths' => [

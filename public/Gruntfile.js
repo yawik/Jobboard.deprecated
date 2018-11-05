@@ -16,13 +16,13 @@ module.exports = function(grunt) {
                 files: [
                     {
                         src: [
-                            targetDir+"/modules/YawikDemoJobboard/less/YawikDemoJobboard.less",
+                            targetDir+"/modules/Jobboard/less/Jobboard.less",
                             "./node_modules/select2/dist/css/select2.min.css",
                             "./node_modules/pnotify/dist/pnotify.css",
                             "./node_modules/pnotify/dist/pnotify.buttons.css",
                             "./node_modules/bootsrap3-dialog/dist/css/bootstrap-dialog.css"
                         ],
-                        dest: targetDir+"/modules/YawikDemoJobboard/dist/YawikDemoJobboard.css"
+                        dest: targetDir+"/modules/Jobboard/dist/Jobboard.css"
                     }
                 ]
             },
@@ -31,15 +31,15 @@ module.exports = function(grunt) {
             demoJobboard: {
                 files: [
                     {
-                        dest: targetDir+'/modules/YawikDemoJobboard/dist/YawikDemoJobboard.min.css',
-                        src: targetDir+'/modules/YawikDemoJobboard/dist/YawikDemoJobboard.css'
+                        dest: targetDir+'/modules/Jobboard/dist/Jobboard.min.css',
+                        src: targetDir+'/modules/Jobboard/dist/Jobboard.css'
                     }
                 ]
             }
         }
     });
 
-    grunt.registerTask('yawik:demo-jobboard',['copy','less','concat','uglify','cssmin']);
+    grunt.registerTask('yawik:demoJobboard',['copy','less','concat','uglify','cssmin']);
 
 
 };
