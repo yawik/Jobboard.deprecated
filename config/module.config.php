@@ -1,17 +1,24 @@
 <?php
 
 /**
- * create a config/autoload/YawikDemoJobboard.local.php and put modifications there.
+ * create a config/autoload/Jobboard.local.php and put modifications there.
  */
 
-\YawikDemoJobboard\Module::$isLoaded = true;
+\Jobboard\Module::$isLoaded = true;
 
 return array(
     'service_manager' => array(
         'factories' => array(
-            'YawikDemoJobboard/Listener/DelayedUserRegistrationMailSender' => 'YawikDemoJobboard\Factory\Listener\DelayedUserRegistrationMailSenderFactory',
+            'Jobboard/Listener/DelayedUserRegistrationMailSender' => 'Jobboard\Factory\Listener\DelayedUserRegistrationMailSenderFactory',
+            \Jobboard\Listener\JobImportListener::class => \Jobboard\Factory\Listener\JobImportListenerFactory::class,
         ),
     ),
+
+    'event_manager' => [
+        'Jobs/Events' => [ 'listeners' => [
+            \Jobboard\Listener\JobImportListener::class => [ \Jobs\Listener\Events\JobEvent::EVENT_IMPORT_DATA, /* lazy */ true ],
+        ]],
+    ],
 
     'view_manager' => array(
         'template_map' => array(
@@ -22,14 +29,18 @@ return array(
             'main-navigation'      => __DIR__ . '/../view/main-navigation.phtml',
             'templates/default/index' => __DIR__ . '/../view/templates/default/index.phtml',
             'content/jobs-terms-and-conditions' => __DIR__ . '/../view/agb.phtml',
+            'main-navigation'      => __DIR__ . '/../view/main-navigation.phtml',
+            'jobs/jobboard/index.ajax.phtml' => __DIR__ . '/../view/jobs/index.ajax.phtml',
+            'jobs/jobboard/index' => __DIR__ . '/../view/jobs/index.phtml',
         ),
     ),
     'translator'   => array(
         'translation_file_patterns' => array(
             array(
-                'type'     => 'gettext',
+                'type'     => 'phparray',
                 'base_dir' => __DIR__ . '/../language',
-                'pattern'  => '%s.mo',
+                'pattern'  => '%s.php',
+                'text_domain' => \Jobboard\Module::TEXT_DOMAIN,
             ),
         ),
     ),
@@ -64,4 +75,10 @@ return array(
             ),
         ),
     ),
+
+    'options' => [
+        \Jobboard\Options\JobImportListenerOptions::class => [
+
+        ],
+    ]
 );

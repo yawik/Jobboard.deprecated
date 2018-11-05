@@ -9,17 +9,25 @@
  */
 
 // See: http://yawik.readthedocs.org/en/latest/modules/core/notifications.html
-
+$lang = $this->params('lang');
 $notifications = $this->partial('core/notifications');
 
 
-$this->configHeadScript()->prependFile($this->basepath('dist/js/core.min.js'));
-$this->configHeadScript()->appendScript('var lang="' . $this->params('lang') . '";'
-    . 'var basePath="' . $this->basePath() . '";');
+$this->configHeadScript()->prependFile($this->basepath('/Core/js/core.init.js'));
+$this->configHeadScript()->prependFile($this->basePath('/assets/pnotify/pnotify.custom.min.js'), 'text/javascript');
+$this->configHeadScript()->prependFile($this->basePath('/assets/bootstrap/js/bootstrap.min.js'));
+$this->configHeadScript()->prependFile($this->basePath('/assets/jquery/jquery.min.js'));
+$this->configHeadScript()->appendFile($this->basePath('/assets/select2/js/select2.min.js'));
+if ($lang!='en') {
+    $this->configHeadScript()->appendFile($this->basePath('/assets/select2/js/i18n/' . $lang . '.js'));
+}
+$this->configHeadScript()->appendScript('var lang="' . $lang . '";'
+                                        . 'var basePath="' . $this->basePath() . '";');
 
-$this->headLink()->prependStylesheet($this->basePath('/modules/YawikDemoJobboard/lib/animate.min.css'));
-$this->headLink()->prependStylesheet($this->basePath('/modules/YawikDemoJobboard/dist/YawikDemoJobboard.min.css'));
-
+$this->headLink()->prependStylesheet($this->basePath('/assets/pnotify/pnotify.custom.min.css'));
+$this->headLink()->prependStylesheet($this->basePath('/Jobboard/animate.min.css'));
+$this->headLink()->prependStylesheet($this->basePath('/Jobboard/Jobboard.css'));
+$this->headLink()->appendStylesheet($this->basePath('/assets/select2/css/select2.css'));
 ?>
 <?php echo $this->doctype(); ?>
 <html lang="<?php echo $this->params('lang')?>">
@@ -44,7 +52,7 @@ $this->headLink()->prependStylesheet($this->basePath('/modules/YawikDemoJobboard
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand hidden-xs" href="<?php echo $this->basepath('/' . $this->params('lang')) ?>">YAWIK Jobboard</a>
+            <a class="navbar-brand hidden-xs" href="<?php echo $this->basepath('/' . $this->params('lang')) ?>"><?=$this->translate('YAWIK Jobboard', \Jobboard\Module::TEXT_DOMAIN)?></a>
             <a class="navbar-brand visible-xs" href="<?php echo $this->basepath('/' . $this->params('lang')) ?>">Y</a>
         </div>
         <nav id="main-navigation" class="navbar-collapse collapse" role="navigation">

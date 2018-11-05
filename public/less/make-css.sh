@@ -1,3 +1,3 @@
 #!/bin/sh
 
-lessc  --yui-compress  YawikDemoJobboard.less ../public/YawikDemoJobboard.css
+lessc  Jobboard.less ../public/Jobboard.css

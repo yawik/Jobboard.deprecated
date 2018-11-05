@@ -1,7 +1,7 @@
 <?php
 
 /**
- * YawikDemoJobboard
+ * Jobboard
  *
  * Overwrite for Jobs\Controller\ManageController
  *
@@ -11,7 +11,7 @@
  */
 
 /** ActionController of Core */
-namespace YawikDemoJobboard\Controller;
+namespace Jobboard\Controller;
 
 use Auth\Entity\AnonymousUser;
 use Auth\Entity\User;
@@ -19,7 +19,6 @@ use Auth\Entity\UserInterface;
 use Core\Entity\PermissionsInterface;
 use Jobs\Controller\ManageController;
 use Jobs\Entity\Status;
-use YawikDemoJobboard\Entity\AnonymousOrganizationReference;
 use Zend\Mvc\MvcEvent;
 use Zend\Session\Container as SessionContainer;
 use Zend\View\Model\ViewModel;
@@ -52,7 +51,7 @@ class JobsManageController extends ManageController
         if ('approval' == $action) {
             $services = $this->getServiceLocator();
             $jobEvents = $services->get('Jobs/Events');
-            $mailSender = $services->get('YawikDemoJobboard/Listener/DelayedUserRegistrationMailSender');
+            $mailSender = $services->get('Jobboard/Listener/DelayedUserRegistrationMailSender');
 
             $mailSender->attach($jobEvents);
         }
@@ -92,7 +91,7 @@ class JobsManageController extends ManageController
         }
         $serviceLocator     = $this->getServiceLocator();
         $user               = $this->auth()->getUser();
-        $session = new SessionContainer('YawikDemoJobboard_Jobs_Manage');
+        $session = new SessionContainer('Jobboard_Jobs_Manage');
         $repService = $serviceLocator->get('repositories');
         if ($session->isRegistered && $session->user) {
             $users = $repService->get('Auth/User');
@@ -278,7 +277,7 @@ class JobsManageController extends ManageController
         }
 
         if ($this->auth()->getUser() instanceof AnonymousUser) {
-            $session = new SessionContainer('YawikDemoJobboard_Jobs_Manage');
+            $session = new SessionContainer('Jobboard_Jobs_Manage');
             if (!$session->isRegistered) {
                 $jobValid = false;
                 $errorMessage[] = $translator->translate('Please register');
@@ -301,7 +300,7 @@ class JobsManageController extends ManageController
 
     protected function handleRegistration()
     {
-        $session = new SessionContainer('YawikDemoJobboard_Jobs_Manage');
+        $session = new SessionContainer('Jobboard_Jobs_Manage');
         $jobEntity          = $this->getJob();
         $container          = $this->getFormular($jobEntity);
         $form = $container->get('regForm');
@@ -376,7 +375,7 @@ class JobsManageController extends ManageController
 
                     $repositories->store($jobEntity);
 
-                    $session = new SessionContainer('YawikDemoJobboard_Jobs_Manage');
+                    $session = new SessionContainer('Jobboard_Jobs_Manage');
                     $session->isRegistered = true;
                     $session->user = $user->id;
 
@@ -428,7 +427,7 @@ class JobsManageController extends ManageController
             $container->setForm(
                 'regForm',
                 array(
-                'type' => 'YawikDemoJobboard/IncludedRegisterForm',
+                'type' => 'Jobboard/IncludedRegisterForm',
                 'options' => array(
                     'label' => 'Unternehmen',
                     'enable_descriptions' => true,
@@ -455,11 +454,11 @@ class JobsManageController extends ManageController
         $id_fromSubForm = $this->params()->fromPost('job', 0);
         $user           = $this->auth()->getUser();
         $id             = empty($id_fromRoute)? (empty($id_fromQuery)?$id_fromSubForm:$id_fromQuery) : $id_fromRoute;
-        $session        = new SessionContainer('YawikDemoJobboard_Jobs_Manage');
+        $session        = new SessionContainer('Jobboard_Jobs_Manage');
 
         if (empty($id) && $allowDraft) {
             if ($user instanceof AnonymousUser) {
-                $session = new SessionContainer('YawikDemoJobboard_Jobs_Manage');
+                $session = new SessionContainer('Jobboard_Jobs_Manage');
                 if ($session->job) {
                     $jobId = $session->job;
                     $job = $repository->find($jobId);
