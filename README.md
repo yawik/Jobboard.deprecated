@@ -13,16 +13,16 @@ https://jobs.yawik.org
 
 You can use this Module as starting point to write your own Module.
 
+Build status:
+[![Build Status](https://travis-ci.org/yawik/Jobboard.svg?branch=master)](https://travis-ci.org/yawik/Jobboard)
+
 
 Installation
 ------------
 
 ```
-cd YAWIK/modules
-git clone https://github.com/yawik/Jobboard.git
-cp YAWIK/modules/Jobboard/Jobboard.module.php.dist config/autoload/Jobboard.module.php
+$ cd /path/to/yawik
+$ composer install yawik/demo-jobboard
 ```
-
-make sure, that ther are no cached module files by ``rm cache/module-*.php``
 
 http://yawik.readthedocs.io/en/latest/modules/company-registration/index.html#installation

@@ -1,7 +1,7 @@
 *~
 view/.*
 config/build.properties
-test/build
 /vendor/
 components
+node_modules
 composer.lock
