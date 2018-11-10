@@ -42,7 +42,8 @@
     "config": {
         "platform": {
             "ext-mongo": "1.6.16"
-        }
+        },
+        "process-timeout": 0
     },
     "scripts": {
         "auto-scripts": [
