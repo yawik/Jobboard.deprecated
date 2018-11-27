@@ -9,11 +9,8 @@ return [
         'Jobs',
         'Applications',
         'Settings',
-        'Organizations',
         'Geo',
+        'Organizations',
         'Jobboard',
-    ],
-    'core_options' => [
-        'systemMessageEmail' => 'developer@yawik.org',
     ],
 ];
